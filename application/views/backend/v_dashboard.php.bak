@@ -26,7 +26,6 @@
                 <div class="page-footer">
                     <p class="no-s"><?php echo date('Y');?> &copy; Sadia Mane</p>
                 </div>
-				
             </div><!-- Page Inner -->
         </main><!-- Page Content -->
         <div class="cd-overlay"></div>

@@ -6,7 +6,7 @@
                         </a>
                     </div>
                     <div class="logo-box">
-                        <a href="<?php echo site_url('halamanbelakang/dashboard');?>" class="logo-text"><span>Sadia Mane</span></a>
+                        <a href="<?php echo site_url('halamanbelakang/dashboard');?>" class="logo-text"><span>LPMP</span></a>
                     </div><!-- Logo Box -->
                     <div class="topmenu-outer">
                         <div class="top-menu">

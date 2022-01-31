@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v16:20 {
+  background: url("../images/v16:20.png");
+  width: 100%;
+  height: 1024px;
+}
