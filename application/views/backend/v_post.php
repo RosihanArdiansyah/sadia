@@ -29,14 +29,13 @@
                            
                             <div class="panel panel-white">
                                 <div class="panel-body">
-                                    <a href="<?php echo site_url('halamanbelakang/post/add_new');?>" class="btn btn-success m-b-sm">Add New Post</a>
-                                    
+                                   
                                     <div class="table-responsive">
                                         <table id="data-table" class="display table" style="width: 100%; cellspacing: 0;">
                                             <thead>
                                                 <tr>
                                                     <th style="width: 100px;">No</th>
-                                                    <th>Title</th>
+													<th>Title</th>
                                                     <th>Publish Date</th>
                                                     <th>Category</th>
                                                     <th>Views</th>

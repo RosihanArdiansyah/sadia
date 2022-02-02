@@ -82,7 +82,26 @@
                                 </div>
                             </div>
                         </div>
-                        </div><!-- Row -->
+                        <div class="col-lg-3 col-md-6">
+                            <div class="panel info-box panel-white">
+                                <div class="panel-body">
+                                    <div class="info-box-stats">
+                                        <p class="counter"><?php echo number_format($all_comments);?></p>
+                                        <span class="info-box-title">Comments Received</span>
+                                    </div>
+                                    <div class="info-box-icon">
+                                        <i class="icon-bubbles"></i>
+                                    </div>
+                                    <div class="info-box-progress">
+                                        <div class="progress progress-xs progress-squared bs-n">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Row -->
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="panel panel-white">
