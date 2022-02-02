@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- Title -->
-        <title>Category</title>
+        <title>Daftar ATK</title>
         
         <?php include 'v_header.php'; ?>
         
@@ -14,12 +14,12 @@
         <?php include 'v_sidebar.php'; ?>   <!-- Page Sidebar --><!-- Page Sidebar -->
             <div class="page-inner">
                 <div class="page-title">
-                    <h3>Category</h3>
+                    <h3>Daftar ATK</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="<?php echo site_url('halamanbelakang/dashboard');?>">Dashboard</a></li>
                             <li><a href="#">Post</a></li>
-                            <li class="active">Category</li>
+                            <li class="active">Daftar ATK</li>
                         </ol>
                     </div>
                 </div>
@@ -36,8 +36,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Category</th>
-                                                    <th>Slug</th>
+                                                    <th>Nama Barang</th>
+                                                    
                                                     <th style="text-align: center;">Action</th>
                                                 </tr>
                                             </thead>
@@ -50,9 +50,9 @@
                                                 <tr>
                                                     <td><?php echo $no;?></td>
                                                     <td><?php echo $row->category_name;?></td>
-                                                    <td><?php echo $row->category_slug;?></td>
+                                                    
                                                     <td style="text-align: center;">
-                                                        <a href="javascript:void(0);" class="btn btn-xs btn-edit" data-id="<?php echo $row->category_id;?>" data-category="<?php echo $row->category_name;?>"><span class="fa fa-pencil"></span></a>
+                                                        <a href="javascript:void(0);" class="btn btn-xs btn-edit" data-toggle="modal" data-target="#EditModal<?php echo $row->category_id;?>"><span class="fa fa-pencil"></span></a>
                                                         <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->category_id;?>"><span class="fa fa-trash"></span></a>
                                                     </td>
                                                 </tr>
@@ -83,20 +83,20 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <input type="text" name="category" class="form-control" placeholder="Nama Barang" required>
+                                <input type="text" name="category_name" class="form-control" placeholder="Nama Barang" required>
                             </div>
 							<div class="form-group">
-                                <input type="text" name="category" class="form-control" placeholder="Kode Barang" required>
+                                <input type="text" name="category_code" class="form-control" placeholder="Kode Barang" required>
                             </div>
 							<div class="form-group">
-                                <input type="number" name="category" class="form-control" placeholder="Jumlah Barang" required>
+                                <input type="number" name="category_sum" class="form-control" placeholder="Jumlah Barang" required>
                             </div>
 							<div class="form-group">
 								<caption>Tanggal Masuk</caption>
-                                <input type="date" name="category" class="form-control" "Tanggal Masuk" required>
+                                <input type="date" name="category_date" class="form-control" required>
                             </div>
 							<div class="form-group">
-                                <input type="text" name="category" class="form-control" placeholder="Harga Pembelian" required>
+                                <input type="text" name="category_price" class="form-control" placeholder="Harga Pembelian" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -109,8 +109,11 @@
         </form>
 	
         <!--EDIT RECORD MODAL-->
+        <?php 
+            foreach ($data->result() as $row):
+        ?>
         <form action="<?php echo site_url('halamanbelakang/category/edit');?>" method="post">
-            <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="EditModal<?php echo $row->category_id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -119,20 +122,20 @@
                     </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <input type="text" name="category" class="form-control" placeholder="Nama Barang" required>
+                                <input type="text" name="category_name2" value="<?php echo $row->category_name;?>" class="form-control" placeholder="Nama Barang" required>
                             </div>
 							<div class="form-group">
-                                <input type="text" name="category" class="form-control" placeholder="Kode Barang" required>
+                                <input type="text" name="category_code2" value="<?php echo $row->category_code;?>" class="form-control" placeholder="Kode Barang" required>
                             </div>
 							<div class="form-group">
-                                <input type="number" name="category" class="form-control" placeholder="Jumlah Barang" required>
+                                <input type="number" name="category_sum2" value="<?php echo $row->category_sum;?>" class="form-control" placeholder="Jumlah Barang" required>
                             </div>
 							<div class="form-group">
 								<caption>Tanggal Masuk</caption>
-                                <input type="date" name="category" class="form-control" "Tanggal Masuk" required>
+                                <input type="date" name="category_date2" value="<?php echo $row->category_date;?>" class="form-control" required>
                             </div>
 							<div class="form-group">
-                                <input type="text" name="category" class="form-control" placeholder="Harga Pembelian" required>
+                                <input type="text" name="category_price2" value="<?php echo $row->category_price;?>" class="form-control" placeholder="Harga Pembelian" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -144,6 +147,7 @@
                 </div>
             </div>
         </form>
+        <?php endforeach;?>
 
         <!--DELETE RECORD MODAL-->
         <form action="<?php echo site_url('halamanbelakang/category/delete');?>" method="post">
@@ -194,9 +198,9 @@
                 //Edit Record
                 $('.btn-edit').on('click',function(){
                     var id=$(this).data('id');
-                    var name=$(this).data('category');
+                    // var name=$(this).data('category');
                     $('[name="kode"]').val(id);
-                    $('[name="category2"]').val(name);
+                    // $('[name="category_name2"]').val(name);
                     $('#EditModal').modal('show');
                 });
 

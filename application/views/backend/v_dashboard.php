@@ -23,7 +23,6 @@
                         </ol>
                     </div>
                 </div>
-<<<<<<< HEAD
                 <div id="main-wrapper">
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
@@ -125,10 +124,6 @@
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
                     <p class="no-s"><?php echo date('Y');?> &copy; SADIA MANE</p>
-=======
-                <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia Mane</p>
->>>>>>> f881758391446aa6127d2a4a8c1eaa2676440365
                 </div>
 				
             </div><!-- Page Inner -->

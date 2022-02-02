@@ -42,11 +42,7 @@
                     </div>
                     <ul class="menu accordion-menu">
                         <li class="active"><a href="<?php echo site_url('halamanbelakang/dashboard');?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
-<<<<<<< HEAD
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>ATK</p><span class="arrow"></span></a>
-=======
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Anggota</p><span class="arrow"></span></a>
->>>>>>> f881758391446aa6127d2a4a8c1eaa2676440365
                             <ul class="sub-menu">
 								<?php if($this->session->userdata('access')=='2'):?>
                                 <li><a href="<?php echo site_url('halamanbelakang/post/add_new');?>">Membuat Permintaan</a></li> <?php else:?> <?php endif;?>
