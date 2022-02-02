@@ -5,6 +5,7 @@
                             <i class="fa fa-bars"></i>
                         </a>
                     </div>
+<<<<<<< HEAD
                     <div class="logo-box" >
 						<tr>
 						<td>
@@ -14,6 +15,10 @@
 						<a href="<?php echo site_url('halamanbelakang/dashboard');?>" class="logo-text"><span>Sadia Mane</span></a>
 						</td>
 						</tr>
+=======
+                    <div class="logo-box">
+                        <a href="<?php echo site_url('halamanbelakang/dashboard');?>" class="logo-text"><span>LPMP</span></a>
+>>>>>>> f881758391446aa6127d2a4a8c1eaa2676440365
                     </div><!-- Logo Box -->
                     <div class="topmenu-outer">
                         <div class="top-menu">

@@ -16,13 +16,14 @@
             <div class="page-inner">
                 <div class="page-title">
                     <h3>Dashboard</h3>
-                    <div class="page-breadcruLPMP SULAWESI SELATAN">
+                    <div class="page-breadcrumb""Sadia Mane">
                         <ol class="breadcrumb">
                             <li><a href="<?php echo site_url('halamanbelakang/dashboard');?>">Home</a></li>
                             <li class="active">Dashboard</li>
                         </ol>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div id="main-wrapper">
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
@@ -124,7 +125,12 @@
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
                     <p class="no-s"><?php echo date('Y');?> &copy; SADIA MANE</p>
+=======
+                <div class="page-footer">
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia Mane</p>
+>>>>>>> f881758391446aa6127d2a4a8c1eaa2676440365
                 </div>
+				
             </div><!-- Page Inner -->
         </main><!-- Page Content -->
         <div class="cd-overlay"></div>
