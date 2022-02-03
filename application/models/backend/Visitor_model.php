@@ -16,12 +16,6 @@ class Visitor_model extends CI_Model{
     	$query = $this->db->count_all('tbl_visitors');
     	return $query;
     }
-
-    function count_all_page_views(){
-    	$query = $this->db->count_all('tbl_post_views');
-    	return $query;
-    }
-
     function count_all_posts(){
     	$query = $this->db->count_all('tbl_posts');
     	return $query;
@@ -29,11 +23,6 @@ class Visitor_model extends CI_Model{
 
     function count_all_comments(){
     	$query = $this->db->count_all('tbl_comment');
-    	return $query;
-    }
-
-    function top_five_articles(){
-    	$query = $this->db->query("SELECT * FROM tbl_posts ORDER BY post_views DESC LIMIT 5");
     	return $query;
     }
 

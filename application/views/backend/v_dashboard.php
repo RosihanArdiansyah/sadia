@@ -44,25 +44,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="panel info-box panel-white">
-                                <div class="panel-body">
-                                    <div class="info-box-stats">
-                                        <p class="counter"><?php echo number_format($all_post_views);?></p>
-                                        <span class="info-box-title">Page Views</span>
-                                    </div>
-                                    <div class="info-box-icon">
-                                        <i class="icon-eye"></i>
-                                    </div>
-                                    <div class="info-box-progress">
-                                        <div class="progress progress-xs progress-squared bs-n">
-                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      
                         <div class="col-lg-3 col-md-6">
                             <div class="panel info-box panel-white">
                                 <div class="panel-body">

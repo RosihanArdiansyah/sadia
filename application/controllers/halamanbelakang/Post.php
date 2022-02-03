@@ -35,80 +35,9 @@ class Post extends CI_Controller{
 	function publish(){
 		
 		$title	  = strip_tags(htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
-		$contents = $this->input->post('contents');
-		$headline = $this->input->post('headline');
 		$category = $this->input->post('category',TRUE);
-		$preslug  = strip_tags(htmlspecialchars($this->input->post('slug',TRUE),ENT_QUOTES));
-		$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
-		$trim     = trim($string);
-		$praslug  = strtolower(str_replace(" ", "-", $trim));
-	    
-		$dataPost = array();
-		//untuk gambar, bila ada gambar yang diupload
-		//maka upload gambarnya, dan buat thumbnailnya
-	    if(!empty($_FILES['filefoto']['name'])){
-			$config['upload_path'] = './assets/images/';
-	    	$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-	    	$config['encrypt_name'] = TRUE;
-			$this->upload->initialize($config);
-			if ($this->upload->do_upload('filefoto')){
-	            $img = $this->upload->data();
-	            
-	            if($category != '3') {
-	                //Compress Image
-	            $config['image_library']='gd2';
-	            $config['source_image']='./assets/images/'.$img['file_name'];
-	            $config['create_thumb']= FALSE;
-	            $config['maintain_ratio']= FALSE;
-	            $config['quality']= '60%';
-	            $config['width']= 500;
-	            $config['height']= 320;
-	            $config['new_image']= './assets/images/'.$img['file_name'];
-	            $this->load->library('image_lib', $config);
-	            $this->image_lib->resize();
-	            $this->_create_thumbs($img['file_name']);
-	            }
-	            
-				$image=$img['file_name'];
-			}else{
-	            echo $this->session->set_flashdata('msg','warning');
-	            redirect('halamanbelakang/post');
-			}
-			
-	    }else{
-			$image = '';
-		}
-
-
-
-		//untuk dokumen
-		//bila ada dokumen yang diupload, 
-		if(!empty($_FILES['fileupload']['name'])){
-			$config['upload_path'] = './assets/document/';
-	    	$config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|doc|xls';
-	    	$config['encrypt_name'] = TRUE;
-			$this->upload->initialize($config);
-			if ($this->upload->do_upload('fileupload')){
-	            $dokumen = $this->upload->data();
-				$document=$dokumen['file_name'];
-			}else{
-	            echo $this->session->set_flashdata('msg','warning');
-	            redirect('halamanbelakang/post');
-			}
-			
-	    }else{
-			$document = '';
-		}
-
-
-
-		$query = $this->db->get_where('tbl_posts', array('post_slug' => $praslug));
-		if($query->num_rows() > 0){
-			$uniqe_string = rand();
-			$slug = $praslug.'-'.$uniqe_string;
-		}else{
-			$slug = $praslug;
-		}
+		$sum = $this->input->post('sum',TRUE);
+		$dataPost = array();		
 		$xtags[]=$this->input->post('tag');
 		foreach($xtags as $tag){
 			$tags = @implode(",", $tag);
@@ -118,15 +47,11 @@ class Post extends CI_Controller{
 		$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 		$dataPost = array(
 			'post_title' => $title,
-			'post_contents' => $contents,
 			'post_category_id'	=> $category,
-			'post_slug'		=> $slug,
-			'post_image'	=> $image,
-			'post_file_uploads'	=> $document,
 			'post_tags'		=> $tags,
 			'post_description'	=> $description,
-			'post_status' 	   => 1,
-			'post_headline'		=> $headline,
+			'post_sum' => $sum,
+			'post_status' 	   => 0,
 	        'post_user_id'	   => $this->session->userdata('id')
 		);
 

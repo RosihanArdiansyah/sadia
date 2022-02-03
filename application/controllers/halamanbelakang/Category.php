@@ -29,12 +29,12 @@ class Category extends CI_Controller{
 	}
 
 	function edit(){
-		$id		  = $this->input->post('kode',TRUE);
-		$category = htmlspecialchars($this->input->post('category_name',TRUE),ENT_QUOTES);
-		$code = htmlspecialchars($this->input->post('category_code',TRUE),ENT_QUOTES);
-		$price = htmlspecialchars($this->input->post('category_price',TRUE),ENT_QUOTES);
-		$sum = htmlspecialchars($this->input->post('category_sum',TRUE),ENT_QUOTES);
-		$date = $this->input->post('category_date');
+		$id		  = $this->input->post('id',TRUE);
+		$category = htmlspecialchars($this->input->post('category_name2',TRUE),ENT_QUOTES);
+		$code = htmlspecialchars($this->input->post('category_code2',TRUE),ENT_QUOTES);
+		$price = htmlspecialchars($this->input->post('category_price2',TRUE),ENT_QUOTES);
+		$sum = htmlspecialchars($this->input->post('category_sum2',TRUE),ENT_QUOTES);
+		$date = $this->input->post('category_date2');
 		$tanggal = substr($date,0,10);
 		$this->category_model->edit_row($id,$category,$code,$price,$sum,$tanggal);
 		$this->session->set_flashdata('msg','info');

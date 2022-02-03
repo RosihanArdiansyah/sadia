@@ -18,11 +18,8 @@ class Dashboard extends CI_Controller{
         }
         $data['month'] = json_encode($bulan);
         $data['value'] = json_encode($value);
-        $data['all_visitors'] = $this->visitor_model->count_all_visitors();
-		$data['all_post_views'] = $this->visitor_model->count_all_page_views(); 
+        $data['all_visitors'] = $this->visitor_model->count_all_visitors(); 
 		$data['all_posts'] = $this->visitor_model->count_all_posts();
-		$data['all_comments'] = $this->visitor_model->count_all_comments();
-		$data['top_five_articles'] = $this->visitor_model->top_five_articles();
 		
 		$monthly_visitors = $this->visitor_model->count_visitor_this_month();
 		if($monthly_visitors->num_rows() > 0){

@@ -37,6 +37,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Barang</th>
+                                                    <th>Jumlah Barang</th>
                                                     
                                                     <th style="text-align: center;">Action</th>
                                                 </tr>
@@ -48,11 +49,13 @@
                                                     $no++;
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $no;?></td>
+                                                <td><?php echo $no;?></td>
                                                     <td><?php echo $row->category_name;?></td>
-                                                    
+                                                    <td><?php echo $row->category_sum;?></td>
                                                     <td style="text-align: center;">
-                                                        <a href="javascript:void(0);" class="btn btn-xs btn-edit" data-toggle="modal" data-target="#EditModal<?php echo $row->category_id;?>"><span class="fa fa-pencil"></span></a>
+                                                        <a href="javascript:void(0);" class="btn btn-xs btn-edit" data-id="<?php echo $row->category_id;?>" data-name="<?php echo $row->category_name;?>" 
+                                                        data-kode="<?php echo $row->category_code;?>" data-date="<?php echo $row->category_date;?>" data-price="<?php echo $row->category_price;?>" 
+                                                        data-sum="<?php echo $row->category_sum;?>"><span class="fa fa-pencil"></span></a>
                                                         <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->category_id;?>"><span class="fa fa-trash"></span></a>
                                                     </td>
                                                 </tr>
@@ -108,12 +111,9 @@
             </div>
         </form>
 	
-        <!--EDIT RECORD MODAL-->
-        <?php 
-            foreach ($data->result() as $row):
-        ?>
-        <form action="<?php echo site_url('halamanbelakang/category/edit');?>" method="post">
-            <div class="modal fade" id="EditModal<?php echo $row->category_id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <!--EDIT RECORD MODAL-->
+         <form action="<?php echo site_url('halamanbelakang/category/edit');?>" method="post">
+            <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -122,24 +122,24 @@
                     </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <input type="text" name="category_name2" value="<?php echo $row->category_name;?>" class="form-control" placeholder="Nama Barang" required>
+                                <input type="text" name="category_name2" class="form-control" placeholder="Category Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="category_code2" class="form-control" placeholder="Kode Barang" required>
                             </div>
 							<div class="form-group">
-                                <input type="text" name="category_code2" value="<?php echo $row->category_code;?>" class="form-control" placeholder="Kode Barang" required>
-                            </div>
-							<div class="form-group">
-                                <input type="number" name="category_sum2" value="<?php echo $row->category_sum;?>" class="form-control" placeholder="Jumlah Barang" required>
+                                <input type="number" name="category_sum2" class="form-control" placeholder="Jumlah Barang" required>
                             </div>
 							<div class="form-group">
 								<caption>Tanggal Masuk</caption>
-                                <input type="date" name="category_date2" value="<?php echo $row->category_date;?>" class="form-control" required>
+                                <input type="date" name="category_date2" class="form-control" required>
                             </div>
 							<div class="form-group">
-                                <input type="text" name="category_price2" value="<?php echo $row->category_price;?>" class="form-control" placeholder="Harga Pembelian" required>
+                                <input type="text" name="category_price2" class="form-control" placeholder="Harga Pembelian" required>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="kode" required>
+                            <input type="hidden" name="id" required>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-success">Edit</button>
                         </div>
@@ -147,7 +147,7 @@
                 </div>
             </div>
         </form>
-        <?php endforeach;?>
+        
 
         <!--DELETE RECORD MODAL-->
         <form action="<?php echo site_url('halamanbelakang/category/delete');?>" method="post">
@@ -195,12 +195,20 @@
             $(document).ready(function(){
                 $('#data-table').dataTable();
 
-                //Edit Record
-                $('.btn-edit').on('click',function(){
+               //Edit Record
+               $('.btn-edit').on('click',function(){
                     var id=$(this).data('id');
-                    // var name=$(this).data('category');
-                    $('[name="kode"]').val(id);
-                    // $('[name="category_name2"]').val(name);
+                    var name=$(this).data('name');
+                    var kode=$(this).data('kode');
+                    var sum=$(this).data('sum');
+                    var date=$(this).data('date');
+                    var price=$(this).data('price');
+                    $('[name="id"]').val(id);
+                    $('[name="category_name2"]').val(name);
+                    $('[name="category_code2"]').val(kode);
+                    $('[name="category_sum2"]').val(sum);
+                    $('[name="category_date2"]').val(date);
+                    $('[name="category_price2"]').val(price);
                     $('#EditModal').modal('show');
                 });
 
