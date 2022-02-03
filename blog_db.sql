@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2022 at 02:17 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- Generation Time: Feb 03, 2022 at 06:27 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -134,7 +134,7 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`category_id`, `category_name`, `category_code`, `category_price`, `category_sum`, `category_date`) VALUES
-(3, 'asu', 'asu1', 1, 1, '2022-02-02');
+(3, 'Jersey home', 'Anfield1', 1, 14, '2022-02-02');
 
 -- --------------------------------------------------------
 
@@ -753,22 +753,22 @@ INSERT INTO `tbl_pages` (`page_id`, `page_title`, `page_slug`, `page_contents`, 
 CREATE TABLE `tbl_posts` (
   `post_id` int(11) UNSIGNED NOT NULL,
   `post_title` text COLLATE latin1_general_ci NOT NULL,
-  `post_slug` text COLLATE latin1_general_ci NOT NULL DEFAULT '',
-  `post_contents` mediumtext COLLATE latin1_general_ci NOT NULL,
-  `post_type` varchar(40) COLLATE latin1_general_ci NOT NULL DEFAULT 'post',
   `post_category_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `post_date` datetime NOT NULL DEFAULT current_timestamp(),
   `post_user_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
-  `post_image` text COLLATE latin1_general_ci NOT NULL,
-  `post_file_uploads` varchar(200) COLLATE latin1_general_ci NOT NULL DEFAULT '',
-  `post_headline` enum('Y','N') COLLATE latin1_general_ci DEFAULT 'N',
-  `penulis` varchar(30) COLLATE latin1_general_ci NOT NULL,
   `post_last_update` datetime DEFAULT NULL,
+  `post_sum` int(100) NOT NULL DEFAULT 1,
   `post_tags` text COLLATE latin1_general_ci DEFAULT NULL,
   `post_status` int(3) DEFAULT NULL,
-  `post_views` int(11) DEFAULT 0,
   `post_description` text COLLATE latin1_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `tbl_posts`
+--
+
+INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_category_id`, `post_date`, `post_user_id`, `post_last_update`, `post_sum`, `post_tags`, `post_status`, `post_description`) VALUES
+(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 0, 'beli anu');
 
 -- --------------------------------------------------------
 
@@ -852,12 +852,10 @@ CREATE TABLE `tbl_tags` (
 --
 
 INSERT INTO `tbl_tags` (`tag_id`, `tag_name`) VALUES
-(1, 'Teknologi'),
-(2, 'Psikologi'),
-(3, 'Motivasi'),
-(4, 'Kesehatan'),
-(5, 'Kegiatan'),
-(6, 'Ceremoni');
+(1, 'Lusin'),
+(2, 'Gross'),
+(3, 'Kodi'),
+(4, 'Rim');
 
 -- --------------------------------------------------------
 
@@ -1123,7 +1121,7 @@ ALTER TABLE `tbl_pages`
 -- AUTO_INCREMENT for table `tbl_posts`
 --
 ALTER TABLE `tbl_posts`
-  MODIFY `post_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_post_views`
@@ -1147,7 +1145,7 @@ ALTER TABLE `tbl_subscribe`
 -- AUTO_INCREMENT for table `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
-  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_testimonial`
