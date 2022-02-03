@@ -34,6 +34,7 @@
     </head>
     <body class="page-login">
         <main class="page-content">
+                <img src="bg.png" style="position:fixed;right:0;bottom:0;min-width:100%;min-height:100%;opacity:100%;">
             <div class="page-inner">
                 <div id="main-wrapper">
                     <div class="row">
