@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2022 at 12:01 PM
+-- Generation Time: Feb 03, 2022 at 02:17 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -123,18 +123,18 @@ INSERT INTO `tbl_album` (`album_id`, `album_nama`, `album_slug`, `album_deskrips
 CREATE TABLE `tbl_category` (
   `category_id` int(11) NOT NULL,
   `category_name` varchar(200) DEFAULT NULL,
-  `category_slug` varchar(200) DEFAULT NULL
+  `category_code` varchar(256) DEFAULT NULL,
+  `category_price` int(100) DEFAULT NULL,
+  `category_sum` int(100) DEFAULT NULL,
+  `category_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_category`
 --
 
-INSERT INTO `tbl_category` (`category_id`, `category_name`, `category_slug`) VALUES
-(1, 'Berita', 'berita'),
-(2, 'Tulisan', 'tulisan'),
-(3, 'Buletin', 'buletin'),
-(4, 'Pengumuman', 'pengumuman');
+INSERT INTO `tbl_category` (`category_id`, `category_name`, `category_code`, `category_price`, `category_sum`, `category_date`) VALUES
+(3, 'asu', 'asu1', 1, 1, '2022-02-02');
 
 -- --------------------------------------------------------
 
@@ -901,8 +901,8 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_level`, `user_status`, `user_photo`) VALUES
-(1, 'Ashari Muhri', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '1', '1', '9c35bc6cc9b2b94254360ed54c7cf975.jpeg'),
-(2, 'Syamsul Qamar', 'archionasis@yahoo.com', '4738825ffaf232efe74a8c0d7cb865bf', '2', '1', '3d0be9678f99be0b5180634d37ff8ef4.png');
+(1, 'Jurgen Klopp', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '1', '1', 'f2a5c4c75207ab21a3d1d336078b44ea.jpg'),
+(2, 'Sadio Mane', 'user@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2', '1', '4d17db079a45e1e7346e8ce84f72e9f0.jpg');
 
 -- --------------------------------------------------------
 
@@ -1063,7 +1063,7 @@ ALTER TABLE `tbl_album`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_comment`
