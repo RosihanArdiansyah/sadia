@@ -47,10 +47,13 @@
                                             <?php 
                                                 $no=0;
                                                 foreach ($data->result() as $row):
+                                                    if($this->session->userdata('access')=='2'):
+                                                        if($this->session->userdata('id')==$row->user_id):
+                                                   
                                                     $no++;
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $row->user_id;?></td>
                                                     <td><?php echo $row->post_title;?></td>
                                                     <td><?php echo $row->tanggal;?></td>
                                                     <td><?php echo $row->category_name;?></td>
@@ -61,6 +64,22 @@
                                                         <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
                                                     </td>
                                                 </tr>
+                                                        <?php endif;?>
+                                                    <?php else:
+                                                        $no++;?>
+                                                        <tr>
+                                                            <td><?php echo $no;?></td>
+                                                            <td><?php echo $row->post_title;?></td>
+                                                            <td><?php echo $row->tanggal;?></td>
+                                                            <td><?php echo $row->category_name;?></td>
+                                                            <td><?php echo $row->post_sum;?></td>
+                                                            <td><?php echo $row->post_tags;?></td>
+                                                            <td style="text-align: center;">
+                                                                <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
+                                                                <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
+                                                            </td>
+                                                        </tr>
+                                                <?php endif;?>
                                             <?php endforeach; ?>
                                             </tbody>
                                             

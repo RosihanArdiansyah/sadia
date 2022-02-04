@@ -9,6 +9,7 @@ class Post extends CI_Controller{
 		$this->load->model('backend/Tag_model','tag_model');
 		$this->load->model('backend/Category_model','category_model');
 		$this->load->model('backend/Post_model','post_model');
+		$this->load->model('backend/Users_model','users_model');
 		$this->load->library('upload');
 		$this->load->helper('text');
 	}
