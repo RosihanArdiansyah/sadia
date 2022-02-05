@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2022 at 06:27 AM
+-- Generation Time: Feb 05, 2022 at 10:40 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -786,6 +786,17 @@ CREATE TABLE `tbl_post_views` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_rooms`
+--
+
+CREATE TABLE `tbl_rooms` (
+  `room_id` int(11) NOT NULL,
+  `room_name` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_site`
 --
 
@@ -900,7 +911,8 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_level`, `user_status`, `user_photo`) VALUES
 (1, 'Jurgen Klopp', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '1', '1', 'f2a5c4c75207ab21a3d1d336078b44ea.jpg'),
-(2, 'Sadio Mane', 'user@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2', '1', '4d17db079a45e1e7346e8ce84f72e9f0.jpg');
+(2, 'Sadio Mane', 'user@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2', '1', '4d17db079a45e1e7346e8ce84f72e9f0.jpg'),
+(3, 'pimpinan', 'pimpinan@gmail.com', '90973652b88fe07d05a4304f0a945de8', '3', '1', '4d17db079a45e1e7346e8ce84f72e9f0.jpg');
 
 -- --------------------------------------------------------
 
@@ -1004,6 +1016,12 @@ ALTER TABLE `tbl_posts`
 --
 ALTER TABLE `tbl_post_views`
   ADD PRIMARY KEY (`view_id`);
+
+--
+-- Indexes for table `tbl_rooms`
+--
+ALTER TABLE `tbl_rooms`
+  ADD PRIMARY KEY (`room_id`);
 
 --
 -- Indexes for table `tbl_site`
@@ -1130,6 +1148,12 @@ ALTER TABLE `tbl_post_views`
   MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbl_rooms`
+--
+ALTER TABLE `tbl_rooms`
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_site`
 --
 ALTER TABLE `tbl_site`
@@ -1157,7 +1181,7 @@ ALTER TABLE `tbl_testimonial`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_visitors`
