@@ -40,11 +40,7 @@
                         <div class="col-md-3 center">
                             <div class="login-box">
                                 <a href="#" class="logo-name text-lg text-center">SADIA</a>
-<<<<<<< HEAD
                                 <p class="text-center m-t-md">Silahkan Login untuk melanjutkan</p>
-=======
-                                <p class="text-center m-t-md">Please login into your account.</p>
->>>>>>> f881758391446aa6127d2a4a8c1eaa2676440365
                                 <?php echo $this->session->flashdata('msg');?>
                                 <form class="m-t-md" action="<?php echo site_url('login/auth');?>" method="post">
                                     <div class="form-group">
@@ -56,11 +52,7 @@
                                     <button type="submit" class="btn btn-success btn-block">Login</button>
                                     
                                 </form>
-<<<<<<< HEAD
                                 <p class="text-center m-t-xs text-sm"><?php echo date('Y');?> &copy; SADIA MANE</p>
-=======
-                                <p class="text-center m-t-xs text-sm"><?php echo date('Y');?> &copy; LPMP SULAWESI SELATAN</p>
->>>>>>> f881758391446aa6127d2a4a8c1eaa2676440365
                             </div>
                         </div>
                     </div><!-- Row -->

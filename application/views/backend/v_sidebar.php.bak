@@ -42,28 +42,19 @@
                     </div>
                     <ul class="menu accordion-menu">
                         <li class="active"><a href="<?php echo site_url('halamanbelakang/dashboard');?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
-<<<<<<< HEAD
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>ATK</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
-								<?php if($this->session->userdata('access')=='1'):?>
-                                <li><a href="<?php echo site_url('halamanbelakang/post/add_new');?>">Membuat Permintaan</a></li> <?php else:?> <?php endif;?>
+								<?php if($this->session->userdata('access')=='2'|| $this->session->userdata('access')=='3'):?>
+                                <li><a href="<?php echo site_url('halamanbelakang/post/add_new');?>">Membuat Permintaan</a></li><?php else:?> <?php endif;?>
                                 <li><a href="<?php echo site_url('halamanbelakang/post');?>">Daftar Permintaan</a></li>
-                                <li><a href="<?php echo site_url('halamanbelakang/category');?>">Daftar ATK</a></li>
-                                <li><a href="<?php echo site_url('halamanbelakang/tag');?>">Satuan</a></li>
-=======
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Post</p><span class="arrow"></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="<?php echo site_url('halamanbelakang/post/add_new');?>">Add New</a></li>
-                                <li><a href="<?php echo site_url('halamanbelakang/post');?>">Post List</a></li>
-                                <li><a href="<?php echo site_url('halamanbelakang/category');?>">Category</a></li>
-                                <li><a href="<?php echo site_url('halamanbelakang/tag');?>">Tag</a></li>
->>>>>>> f881758391446aa6127d2a4a8c1eaa2676440365
+                                <?php if($this->session->userdata('access')=='1'):?>
+								<li><a href="<?php echo site_url('halamanbelakang/category');?>">Daftar ATK</a></li>
+                                <li><a href="<?php echo site_url('halamanbelakang/tag');?>">Satuan</a></li><?php else:?> <?php endif;?>
                             </ul>
                         </li>
                         
                         <?php if($this->session->userdata('access')=='1'):?>
                         <li><a href="<?php echo site_url('halamanbelakang/users');?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span><p>Users</p></a></li>
-                        <li><a href="<?php echo site_url('halamanbelakang/settings');?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span><p>Settings</p></a></li>
                         <?php else:?>
                         <?php endif;?>
                         <li><a href="<?php echo site_url('logout');?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span><p>Log Out</p></a></li>

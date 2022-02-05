@@ -17,15 +17,15 @@ class Room extends CI_Controller{
 	}
 
 	function save(){
-		$room = strip_tags(htmlspecialchars($this->input->post('room',TRUE),ENT_QUOTES));
-		$this->room_model->add_new_row($room);
+		$tag = strip_tags(htmlspecialchars($this->input->post('room',TRUE),ENT_QUOTES));
+		$this->room_model->add_new_row($tag);
 		$this->session->set_flashdata('msg','success');
 		redirect('halamanbelakang/room');
 	}
 
 	function edit(){
 		$id		 = $this->input->post('kode',TRUE);
-		$room 	 = strip_tags(htmlspecialchars($this->input->post('room2',TRUE),ENT_QUOTES));
+		$tag 	 = strip_tags(htmlspecialchars($this->input->post('room2',TRUE),ENT_QUOTES));
 		$this->room_model->edit_row($id,$room);
 		$this->session->set_flashdata('msg','info');
 		redirect('halamanbelakang/room');
@@ -33,7 +33,7 @@ class Room extends CI_Controller{
 
 	function delete(){
 		$id = $this->input->post('id',TRUE);
-		$this->room_model->delete_row($id);
+		$this->tag_model->delete_row($id);
 		$this->session->set_flashdata('msg','success-delete');
 		redirect('halamanbelakang/room');
 	}

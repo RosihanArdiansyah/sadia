@@ -25,7 +25,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                        <span class="user-name"><?php echo $this->session->userdata('name');?><i class="fa fa-angle-down"></i></span>
+                                        <span class="user-name"><?php echo $this->session->userdata('name');?></span>
                                         <?php
                                             $user_id=$this->session->userdata('id');
                                             $query=$this->db->get_where('tbl_user', array('user_id' => $user_id));
@@ -37,11 +37,12 @@
                                         <img class="img-circle avatar" src="<?php echo base_url().'assets/images/user_blank.png';?>" width="40" height="40" alt="">
                                         <?php endif;?>
                                     </a>
+									<?php if($this->session->userdata('access')=='1'):?>
                                     <ul class="dropdown-menu dropdown-list" role="menu">
                                         <li role="presentation"><a href="<?php echo site_url('halamanbelakang/change_pass');?>"><i class="fa fa-key"></i>Change Password</a></li>
                                         <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a href="<?php echo site_url('logout');?>"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
                                     </ul>
+									<?php else:?> <?php endif;?>
                                 </li>
                                 <li>
                                     <a href="<?php echo site_url('logout');?>" class="log-out waves-effect waves-button waves-classic">
