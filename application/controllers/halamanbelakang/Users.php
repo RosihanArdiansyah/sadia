@@ -8,12 +8,14 @@ class Users extends CI_Controller{
             redirect($url);
         };
 		$this->load->model('backend/Users_model','users_model');
+		$this->load->model('backend/Room_model','room_model');
 		$this->load->library('upload');
 		$this->load->helper('text');
 	}
 
 	function index(){
 		$x['data']=$this->users_model->get_users();
+		$x['room']	   = $this->room_model->get_all_room();
 		$this->load->view('backend/v_users',$x);
 		$this->load->helper('text');
 	}
@@ -24,6 +26,7 @@ class Users extends CI_Controller{
 		$pass=htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
 		$pass2=htmlspecialchars($this->input->post('password2',TRUE),ENT_QUOTES);
 		$level=htmlspecialchars($this->input->post('level',TRUE),ENT_QUOTES);
+		$room=htmlspecialchars($this->input->post('room',TRUE),ENT_QUOTES);
 		
 		$config['upload_path'] = './assets/images'; //path folder
 	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
@@ -52,7 +55,7 @@ class Users extends CI_Controller{
 		                $this->image_lib->resize();
 
 			            $gambar=$gbr['file_name'];		
-						$this->users_model->insert_user($nama,$email,$pass,$level,$gambar);
+						$this->users_model->insert_user($nama,$email,$pass,$level,$gambar,$room);
 						echo $this->session->set_flashdata('msg','success');
 						redirect('halamanbelakang/users');
 					}else{
@@ -61,7 +64,7 @@ class Users extends CI_Controller{
 			    	}
 			                 
 			    }else{
-					$this->users_model->insert_user_noimg($nama,$email,$pass,$level);
+					$this->users_model->insert_user_noimg($nama,$email,$pass,$level,$room);
 					echo $this->session->set_flashdata('msg','success');
 					redirect('halamanbelakang/users');
 				}
@@ -80,6 +83,7 @@ class Users extends CI_Controller{
 		$pass=htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
 		$pass2=htmlspecialchars($this->input->post('password2',TRUE),ENT_QUOTES);
 		$level=htmlspecialchars($this->input->post('level',TRUE),ENT_QUOTES);
+		$room=htmlspecialchars($this->input->post('room',TRUE),ENT_QUOTES);
 		
 		$config['upload_path'] = './assets/images'; //path folder
 	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
@@ -111,7 +115,7 @@ class Users extends CI_Controller{
 			                $this->image_lib->resize();
 
 				            $gambar=$gbr['file_name'];		
-							$this->users_model->update_user_nopass($userid,$nama,$email,$level,$gambar);
+							$this->users_model->update_user_nopass($userid,$nama,$email,$level,$gambar,$room);
 							echo $this->session->set_flashdata('msg','info');
 							redirect('halamanbelakang/users');
 						}else{
@@ -120,7 +124,7 @@ class Users extends CI_Controller{
 				    	}
 				                 
 				    }else{
-						$this->users_model->update_user_nopassimg($userid,$nama,$email,$level);
+						$this->users_model->update_user_nopassimg($userid,$nama,$email,$level,$room);
 						echo $this->session->set_flashdata('msg','info');
 						redirect('halamanbelakang/users');
 					}
@@ -142,7 +146,7 @@ class Users extends CI_Controller{
 				                $this->image_lib->resize();
 
 					            $gambar=$gbr['file_name'];		
-								$this->users_model->update_user($userid,$nama,$email,$pass,$level,$gambar);
+								$this->users_model->update_user($userid,$nama,$email,$pass,$level,$gambar,$room);
 								echo $this->session->set_flashdata('msg','info');
 								redirect('halamanbelakang/users');
 							}else{
@@ -151,7 +155,7 @@ class Users extends CI_Controller{
 					    	}
 					                 
 					    }else{
-							$this->users_model->update_user_noimg($userid,$nama,$email,$pass,$level);
+							$this->users_model->update_user_noimg($userid,$nama,$email,$pass,$level,$room);
 							echo $this->session->set_flashdata('msg','info');
 							redirect('halamanbelakang/users');
 						}
@@ -180,7 +184,7 @@ class Users extends CI_Controller{
 		                $this->image_lib->resize();
 
 			            $gambar=$gbr['file_name'];		
-						$this->users_model->update_user_nopass($userid,$nama,$email,$level,$gambar);
+						$this->users_model->update_user_nopass($userid,$nama,$email,$level,$gambar,$room);
 						echo $this->session->set_flashdata('msg','info');
 						redirect('halamanbelakang/users');
 					}else{
@@ -189,7 +193,7 @@ class Users extends CI_Controller{
 			    	}
 			                 
 			    }else{
-					$this->users_model->update_user_nopassimg($userid,$nama,$email,$level);
+					$this->users_model->update_user_nopassimg($userid,$nama,$email,$level,$room);
 					echo $this->session->set_flashdata('msg','info');
 					redirect('halamanbelakang/users');
 				}
@@ -211,7 +215,7 @@ class Users extends CI_Controller{
 			                $this->image_lib->resize();
 
 				            $gambar=$gbr['file_name'];		
-							$this->users_model->update_user($userid,$nama,$email,$pass,$level,$gambar);
+							$this->users_model->update_user($userid,$nama,$email,$pass,$level,$gambar,$room);
 							echo $this->session->set_flashdata('msg','info');
 							redirect('halamanbelakang/users');
 						}else{
@@ -220,7 +224,7 @@ class Users extends CI_Controller{
 				    	}
 				                 
 				    }else{
-						$this->users_model->update_user_noimg($userid,$nama,$email,$pass,$level);
+						$this->users_model->update_user_noimg($userid,$nama,$email,$pass,$level,$room);
 						echo $this->session->set_flashdata('msg','info');
 						redirect('halamanbelakang/users');
 					}

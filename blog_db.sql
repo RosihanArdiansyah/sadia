@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2022 at 10:40 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Feb 06, 2022 at 01:32 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -768,7 +768,8 @@ CREATE TABLE `tbl_posts` (
 --
 
 INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_category_id`, `post_date`, `post_user_id`, `post_last_update`, `post_sum`, `post_tags`, `post_status`, `post_description`) VALUES
-(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 0, 'beli anu');
+(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 0, 'beli anu'),
+(2, 'anu', 3, '2022-02-03 11:22:14', 1, NULL, 1, 'Lusin', 0, 'beli anu');
 
 -- --------------------------------------------------------
 
@@ -793,6 +794,13 @@ CREATE TABLE `tbl_rooms` (
   `room_id` int(11) NOT NULL,
   `room_name` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_rooms`
+--
+
+INSERT INTO `tbl_rooms` (`room_id`, `room_name`) VALUES
+(1, 'Anu');
 
 -- --------------------------------------------------------
 
@@ -901,6 +909,7 @@ CREATE TABLE `tbl_user` (
   `user_email` varchar(60) DEFAULT NULL,
   `user_password` varchar(40) DEFAULT NULL,
   `user_level` varchar(10) DEFAULT NULL,
+  `user_room_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `user_status` varchar(10) DEFAULT '1',
   `user_photo` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -909,10 +918,10 @@ CREATE TABLE `tbl_user` (
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_level`, `user_status`, `user_photo`) VALUES
-(1, 'Jurgen Klopp', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '1', '1', 'f2a5c4c75207ab21a3d1d336078b44ea.jpg'),
-(2, 'Sadio Mane', 'user@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2', '1', '4d17db079a45e1e7346e8ce84f72e9f0.jpg'),
-(3, 'pimpinan', 'pimpinan@gmail.com', '90973652b88fe07d05a4304f0a945de8', '3', '1', '4d17db079a45e1e7346e8ce84f72e9f0.jpg');
+INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_level`, `user_room_id`, `user_status`, `user_photo`) VALUES
+(1, 'Jurgen Klopp', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '1', 1, '1', 'f2a5c4c75207ab21a3d1d336078b44ea.jpg'),
+(2, 'Sadio Mane', 'user@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2', 1, '1', '4d17db079a45e1e7346e8ce84f72e9f0.jpg'),
+(3, 'FSG', 'lead@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '3', 1, '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -1051,7 +1060,8 @@ ALTER TABLE `tbl_testimonial`
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `room_id` (`user_room_id`);
 
 --
 -- Indexes for table `tbl_visitors`
@@ -1139,7 +1149,7 @@ ALTER TABLE `tbl_pages`
 -- AUTO_INCREMENT for table `tbl_posts`
 --
 ALTER TABLE `tbl_posts`
-  MODIFY `post_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `post_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_post_views`
@@ -1151,7 +1161,7 @@ ALTER TABLE `tbl_post_views`
 -- AUTO_INCREMENT for table `tbl_rooms`
 --
 ALTER TABLE `tbl_rooms`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_site`

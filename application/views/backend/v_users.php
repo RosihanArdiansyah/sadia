@@ -58,8 +58,10 @@
                                                     <?php 
                                                         if($row->user_level=='1'){
                                                             echo "Administrator";
-                                                        }else{
-                                                            echo "Author";
+                                                        }else if($row->user_level=='2'){
+                                                            echo "Pegawai";
+                                                        }else if($row->user_level=='3'){
+                                                            echo "Pimpinan";
                                                         }
                                                     ?>    
                                                 </td>
@@ -132,7 +134,16 @@
                                         <select class="form-control" name="level" required>
                                             <option value="">No Selected</option>
                                             <option value="1">Administrator</option>
-                                            <option value="2">Author</option>
+                                            <option value="2">Pegawai</option>
+                                            <option value="3">Pimpinan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" name="room" required>
+                                            <option value="">No Selected</option>
+                                            <?php foreach ($room->result() as $row) : ?>
+                                                    <option value="<?php echo $row->room_id;?>"><?php echo $row->room_name;?></option>
+                                                <?php endforeach;?>
                                         </select>
                                     </div>
                                 </div>
@@ -184,14 +195,33 @@
                                         <div class="form-group">
                                             <select class="form-control" name="level" required>
                                                 <?php if($row->user_level=='1'):?>
-                                                <option value="1" selected>Administrator</option>
-                                                <option value="2">Author</option>
-                                                <?php else:?>
-                                                <option value="1">Administrator</option>
-                                                <option value="2" selected>Author</option>
+                                                    <option value="1" selected>Administrator</option>
+                                                    <option value="2">Pegawai</option>
+                                                    <option value="3">Pimpinan</option>
+                                                <?php elseif($row->user_level=='2'):?>
+                                                    <option value="1">Administrator</option>
+                                                    <option value="2" selected>Pegawai</option>
+                                                    <option value="3">Pimpinan</option>
+                                                <?php elseif($row->user_level=='3'):?>
+                                                    <option value="1">Administrator</option>
+                                                    <option value="2" >Pegawai</option>
+                                                    <option value="3" selected>Pimpinan</option>
                                                 <?php endif;?>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <select class="form-control" name="room" required>
+                                                <option value="">-Select Option-</option>
+                                                    <?php foreach ($room->result() as $roomrow) : ?>
+                                                        <?php if($row->user_room_id==$roomrow->room_id):?>
+                                                            <option value="<?php echo $roomrow->room_id;?>" selected><?php echo $roomrow->room_name;?></option>
+                                                        <?php else:?>
+                                                            <option value="<?php echo $roomrow->room_id;?>"><?php echo $roomrow->room_name;?></option>
+                                                        <?php endif;?>
+                                                    <?php endforeach;?>
+                                            </select>
+                                        </div>
+                                        
                                     </div>
                                 </div>
 

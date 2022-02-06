@@ -31,8 +31,10 @@
                                     <span><?php echo $this->session->userdata('name');?><br>
                                     <?php if($row['user_level']=='1'):?>
                                     <small>Administrator</small>
-                                    <?php else:?>
-                                    <small>Author</small>
+                                    <?php elseif($row['user_level']=='2'):?>
+                                    <small>Pegawai</small>
+                                    <?php elseif($row['user_level']=='3'):?>
+                                    <small>Pimpinan</small>
                                     <?php endif;?>
                                 </span>
                                 </div>
