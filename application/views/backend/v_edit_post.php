@@ -31,23 +31,39 @@
                     <div class="row">
                         <form action="<?php echo base_url().'halamanbelakang/post/edit'?>" method="post" enctype="multipart/form-data">
                         <div class="col-md-8">
-                            <div class="panel panel-white">
-                               
+                        <div class="panel panel-white">
                                 <div class="panel-body">
-                                    
-                                        <div class="form-group">
-                                            <label>Title</label>
-                                            <input type="text" name="title" value="<?php echo $b['post_title'];?>" class="form-control" placeholder="Title" required>
+                                    <div class="form-group">        
+                                        <label>Barang</label>
+                                            <select class="form-control" name="category" required>
+                                                <option value="">-Select Option-</option>
+                                                    <?php foreach ($category->result() as $row) : ?>
+                                                        <?php if($b['post_category_id']==$row->category_id):?>
+                                                            <option value="<?php echo $row->category_id;?>" selected><?php echo $row->category_name;?></option>
+                                                        <?php else:?>
+                                                            <option value="<?php echo $row->category_id;?>"><?php echo $row->category_name;?></option>
+                                                        <?php endif;?>
+                                                    <?php endforeach;?>
+                                            </select>
+                                        <label style="margin-top: 8px;">Jumlah</label>
+                                            <input type="number" name="sum" value="<?php echo $b['post_sum'];?>" class="form-control" class="form-control" placeholder="Jumlah Barang" required>
+                                    </div>
+                                    <label>Satuan</label> 
+                                        <div style="overflow-y:scroll;height:256px;margin-bottom:30px;">
+                                            <?php 
+                                                $post_tag=$b['post_tags'];
+                                                $strtag=explode(",", $post_tag);
+                                                for($j = 0; $j < count($strtag); $j++){
+
+                                                }
+                                                foreach ($tag->result() as $row) : ?>
+                                                <div class="form-group">
+                                                    <label>
+                                                        <input type="checkbox" name="tag[]" value="<?php echo $row->tag_name;?>" <?php if(in_array($row->tag_name, $strtag)) echo 'checked="checked"';?> > <?php echo $row->tag_name;?>
+                                                    </label>
+                                                </div>
+                                            <?php endforeach;?>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" name="slug" class="form-control" value="<?php echo $b['post_slug'];?>" placeholder="Permalink" style="background-color: #F8F8F8;outline-color: none;border:0;color:blue;" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Contents</label>
-                                            <textarea name="contents" id="summernote"><?php echo $b['post_contents'];?></textarea>
-                                        </div>
-                                        
-                                   
                                 </div>
                             </div>
                         </div>
@@ -55,72 +71,13 @@
                         <div class="col-md-4">
                             <div class="panel panel-white">
                                 <div class="panel-body">
-                                        <div class="form-group">
-                                            <label>Image</label>
-                                            <input type="file" name="filefoto" class="dropify" data-height="190" data-default-file="<?php echo base_url().'assets/images/'.$b['post_image'];?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Dokumen Pendukung <span style="color: red;"><strong>(*Untuk Pengumuman / Buletin)</strong></span></label>
-                                            <br />
-                                            <a href="#">Dokumen Sebelumnya</a>
-                                            <input type="file" name="fileupload" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Headline <span style="color: red;"><strong>(Jadikan Slideshow di halaman awal)</strong></span></label>
-                                            <select class="form-control" name="headline" required>
-                                                <?php if ($b['post_headline'] == 'Y') : ?>
-                                                    <option value="Y" selected>Ya</option>
-                                                    <option value="N">Tidak</option>
-                                                <?php else:?>
-                                                    <option value="Y">Ya</option>
-                                                    <option value="N" selected>Tidak</option>
-                                                <?php endif;?>
-                                                
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Category</label>
-                                            <select class="form-control" name="category" required>
-                                                <option value="">-Select Option-</option>
-                                                <?php foreach ($category->result() as $row) : ?>
-                                                    <?php if($b['post_category_id']==$row->category_id):?>
-                                                        <option value="<?php echo $row->category_id;?>" selected><?php echo $row->category_name;?></option>
-                                                    <?php else:?>
-                                                        <option value="<?php echo $row->category_id;?>"><?php echo $row->category_name;?></option>
-                                                    <?php endif;?>
-                                                <?php endforeach;?>
-                                            </select>
-                                        </div>
-                                        <label>Tags</label>
-                                        <div style="overflow-y:scroll;height:150px;margin-bottom:30px;">
-                                        <?php 
-                                            $post_tag=$b['post_tags'];
-                                            $strtag=explode(",", $post_tag);
-                                            for($j = 0; $j < count($strtag); $j++){
-
-                                            }
-                                            foreach ($tag->result() as $row) : ?>
-                                            <div class="form-group">
-                                                <label>
-                                                    <input type="checkbox" name="tag[]" value="<?php echo $row->tag_name;?>" <?php if(in_array($row->tag_name, $strtag)) echo 'checked="checked"';?> > <?php echo $row->tag_name;?>
-                                                </label>
-                                            </div>
-                                        <?php endforeach;?>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="hidden" name="post_id" value="<?php echo $b['post_id'];?>" required>
-                                            <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> UPDATE</button>
-                                        </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-white">
-                                <div class="panel-body">
-                                        <div class="form-group">
-                                            <label>Meta Description</label>
-                                            <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Meta Description"><?php echo $b['post_description'];?></textarea>
-                                        </div>
-                                        
+                                    <div class="form-group">
+                                        <label>Penjelasan</label>
+                                            <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"><?php echo $b['post_description'];?></textarea>
+                                    </div>
+                                    <div class="btn-group btn-group-justified" role="group">
+                                        <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> PUBLISH</button>
+                                    </div>
                                 </div>
                             </div>
 

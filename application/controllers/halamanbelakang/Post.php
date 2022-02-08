@@ -35,7 +35,6 @@ class Post extends CI_Controller{
 
 	function publish(){
 		
-		$title	  = strip_tags(htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
 		$category = $this->input->post('category',TRUE);
 		$sum = $this->input->post('sum',TRUE);
 		$dataPost = array();		
@@ -47,7 +46,6 @@ class Post extends CI_Controller{
 
 		$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 		$dataPost = array(
-			'post_title' => $title,
 			'post_category_id'	=> $category,
 			'post_tags'		=> $tags,
 			'post_description'	=> $description,
@@ -66,7 +64,6 @@ class Post extends CI_Controller{
 	function edit(){
 
 		$id 	  = $this->input->post('post_id',TRUE);
-		$title	  = strip_tags(htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
 		$contents = $this->input->post('contents');
 		$category = $this->input->post('category',TRUE);
 		$preslug  = strip_tags(htmlspecialchars($this->input->post('slug',TRUE),ENT_QUOTES));
@@ -93,7 +90,6 @@ class Post extends CI_Controller{
 
 		$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 		$dataPost = array(
-			'post_title' => $title,
 			'post_contents' => $contents,
 			'post_category_id'	=> $category,
 			'post_slug'		=> $slug,

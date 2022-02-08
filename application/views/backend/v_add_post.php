@@ -28,52 +28,43 @@
                         <form action="<?php echo base_url().'halamanbelakang/post/publish'?>" method="post" enctype="multipart/form-data">
                         <div class="col-md-8">
                             <div class="panel panel-white">
-
-                                
-                                <div style="overflow-y:scroll;height:150px;margin-bottom:30px;">
-                                         <label>Satuan</label> 
-                                           <?php foreach ($tag->result() as $row) : ?>
-                                            <div class="form-group">
-                                                <label>
-                                                    <input type="checkbox" name="tag[]" value="<?php echo $row->tag_name;?>"> <?php echo $row->tag_name;?>
-                                                </label>
-                                            </div>
-                                            <?php endforeach;?>
-                                
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="panel panel-white">
-
                                 <div class="panel-body">
-                                    <div class="form-group">
+                                    <div class="form-group">        
                                         <label>Barang</label>
                                             <select class="form-control" name="category" required>
                                                 <option value="">-Select Option-</option>
-                                                <?php foreach ($category->result() as $row) : ?>
-                                                    <option value="<?php echo $row->category_id;?>"><?php echo $row->category_name;?></option>
-                                                <?php endforeach;?>
+                                                    <?php foreach ($category->result() as $row) : ?>
+                                                        <option value="<?php echo $row->category_id;?>"><?php echo $row->category_name;?></option>
+                                                    <?php endforeach;?>
                                             </select>
-                                            <label style="margin-top: 8px;">Jumlah</label>
+                                        <label style="margin-top: 8px;">Jumlah</label>
                                             <input type="number" name="sum" class="form-control" placeholder="Jumlah Barang" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Penjelasan</label>
-                                            <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"></textarea>
-                                        </div>
-                                        
-                                        
-                                        <div class="btn-group btn-group-justified" role="group">
-                                            <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> PUBLISH</button>
+                                    </div>
+                                    <label>Satuan</label> 
+                                        <div style="overflow-y:scroll;height:256px;margin-bottom:30px;">
+                                            <?php foreach ($tag->result() as $row) : ?>
+                                                <div class="form-group">
+                                                    <label>
+                                                        <input type="checkbox" name="tag[]" value="<?php echo $row->tag_name;?>"> <?php echo $row->tag_name;?>
+                                                    </label>
+                                                </div>
+                                            <?php endforeach;?>
                                         </div>
                                 </div>
                             </div>
-
-                           
-
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-white">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label>Penjelasan</label>
+                                            <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"></textarea>
+                                    </div>
+                                    <div class="btn-group btn-group-justified" role="group">
+                                        <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> PUBLISH</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         </form>
