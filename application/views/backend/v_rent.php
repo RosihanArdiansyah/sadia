@@ -62,16 +62,16 @@
                                                     <td><?php echo $row->user_name;?></td>
                                                     <td><?php echo $row->category_name;?></td>
                                                     <td><?php echo $row->tanggal;?></td>
-                                                    <td><?php echo $row->post_sum;?></td>
-                                                    <td><?php echo $row->post_tags;?></td>
-                                                    <td><?php echo $row->post_description;?></td>
+                                                    <td><?php echo $row->rent_sum;?></td>
+                                                    <td><?php echo $row->rent_tags;?></td>
+                                                    <td><?php echo $row->rent_description;?></td>
                                                     <?php if($this->session->userdata('access')==1|| $this->session->userdata('access')==3 ):?>
                                                         <td style="text-align: center;">
-                                                            <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
-                                                            <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
+                                                            <a href="<?php echo site_url('halamanbelakang/rent/get_edit/'.$row->rent_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->rent_id;?>"><span class="fa fa-trash"></span></a>
                                                         </td>
                                                     <?php else:?>
-                                                        <td><?php switch ($row->post_status){
+                                                        <td><?php switch ($row->rent_status){
                                                             case 1:
                                                                 echo "Diterima";
                                                                 break;
@@ -93,28 +93,28 @@
                                                         <td><?php echo $row->user_name;?></td>
                                                         <td><?php echo $row->category_name;?></td>
                                                         <td><?php echo $row->tanggal;?></td>
-                                                        <td><?php echo $row->post_sum;?></td>
-                                                        <td><?php echo $row->post_tags;?></td>
-                                                        <td><?php echo $row->post_description;?></td>
+                                                        <td><?php echo $row->rent_sum;?></td>
+                                                        <td><?php echo $row->rent_tags;?></td>
+                                                        <td><?php echo $row->rent_description;?></td>
                                                             <td style="text-align: center;">
-                                                                <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
-                                                                <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
+                                                                <a href="<?php echo site_url('halamanbelakang/rent/get_edit/'.$row->rent_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
+                                                                <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->rent_id;?>"><span class="fa fa-trash"></span></a>
                                                             </td>
                                                         </tr>
                                                     <?php elseif($this->session->userdata('access')==3):
-                                                        if($row->post_status==1):
+                                                        if($row->rent_status==1):
                                                         $no++;?>
                                                         <tr>
                                                         <td><?php echo $no;?></td>
                                                         <td><?php echo $row->user_name;?></td>
                                                         <td><?php echo $row->category_name;?></td>
                                                         <td><?php echo $row->tanggal;?></td>
-                                                        <td><?php echo $row->post_sum;?></td>
-                                                        <td><?php echo $row->post_tags;?></td>
-                                                        <td><?php echo $row->post_description;?></td>
+                                                        <td><?php echo $row->rent_sum;?></td>
+                                                        <td><?php echo $row->rent_tags;?></td>
+                                                        <td><?php echo $row->rent_description;?></td>
                                                             <td style="text-align: center;">
-                                                                <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
-                                                                <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
+                                                                <a href="<?php echo site_url('halamanbelakang/rent/get_edit/'.$row->rent_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
+                                                                <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->rent_id;?>"><span class="fa fa-trash"></span></a>
                                                             </td>
                                                         </tr>
                                                         <?php endif;?>
@@ -136,7 +136,7 @@
         </main><!-- Page Content -->
 
         <!--DELETE RECORD MODAL-->
-        <form action="<?php echo site_url('halamanbelakang/post/delete');?>" method="post">
+        <form action="<?php echo site_url('halamanbelakang/rent/delete');?>" method="post">
             <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">

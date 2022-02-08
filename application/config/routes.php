@@ -69,6 +69,9 @@ $route['translate_uri_dashes'] = FALSE;
 $route['post/(:any)']='post/detail/$1';
 $route['post/page/(:any)']='post/index/$1';
 
+$route['rent/(:any)']='rent/detail/$1';
+$route['rent/page/(:any)']='rent/index/$1';
+
 $route['berita/(:any)']='berita/detail/$1';
 $route['berita/page/(:any)']='berita/index/$1';
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2022 at 01:32 PM
+-- Generation Time: Feb 08, 2022 at 03:26 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -768,7 +768,7 @@ CREATE TABLE `tbl_posts` (
 --
 
 INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_category_id`, `post_date`, `post_user_id`, `post_last_update`, `post_sum`, `post_tags`, `post_status`, `post_description`) VALUES
-(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 0, 'beli anu'),
+(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 1, 'beli anu'),
 (2, 'anu', 3, '2022-02-03 11:22:14', 1, NULL, 1, 'Lusin', 0, 'beli anu');
 
 -- --------------------------------------------------------
@@ -783,6 +783,33 @@ CREATE TABLE `tbl_post_views` (
   `view_ip` varchar(50) DEFAULT NULL,
   `view_post_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_rents`
+--
+
+CREATE TABLE `tbl_rents` (
+  `rent_id` int(11) UNSIGNED NOT NULL,
+  `rent_title` text COLLATE latin1_general_ci NOT NULL,
+  `rent_category_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `rent_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `rent_user_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `rent_last_update` datetime DEFAULT NULL,
+  `rent_sum` int(100) NOT NULL DEFAULT 1,
+  `rent_tags` text COLLATE latin1_general_ci DEFAULT NULL,
+  `rent_status` int(3) DEFAULT NULL,
+  `rent_description` text COLLATE latin1_general_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `tbl_rents`
+--
+
+INSERT INTO `tbl_rents` (`rent_id`, `rent_title`, `rent_category_id`, `rent_date`, `rent_user_id`, `rent_last_update`, `rent_sum`, `rent_tags`, `rent_status`, `rent_description`) VALUES
+(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 1, 'beli anu'),
+(2, 'anu', 3, '2022-02-03 11:22:14', 1, NULL, 1, 'Lusin', 0, 'beli anu');
 
 -- --------------------------------------------------------
 
@@ -1027,6 +1054,14 @@ ALTER TABLE `tbl_post_views`
   ADD PRIMARY KEY (`view_id`);
 
 --
+-- Indexes for table `tbl_rents`
+--
+ALTER TABLE `tbl_rents`
+  ADD PRIMARY KEY (`rent_id`),
+  ADD KEY `idx_catid` (`rent_category_id`),
+  ADD KEY `idx_createdby` (`rent_user_id`);
+
+--
 -- Indexes for table `tbl_rooms`
 --
 ALTER TABLE `tbl_rooms`
@@ -1156,6 +1191,12 @@ ALTER TABLE `tbl_posts`
 --
 ALTER TABLE `tbl_post_views`
   MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_rents`
+--
+ALTER TABLE `tbl_rents`
+  MODIFY `rent_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_rooms`
