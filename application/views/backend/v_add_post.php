@@ -29,18 +29,20 @@
                         <div class="col-md-8">
                             <div class="panel panel-white">
 
-                                <div class="panel-body">
-
-                                        <div class="form-group">
-                                            <label>Judul</label>
-                                            <input type="text" name="title" class="form-control title" required>
-                                        </div>
-											<div class="form-group">
-                                            <label>Penjelasan</label>
-                                            <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"></textarea>
-                                        </div>
+                                
+                                <div style="overflow-y:scroll;height:150px;margin-bottom:30px;">
+                                         <label>Satuan</label> 
+                                           <?php foreach ($tag->result() as $row) : ?>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" name="tag[]" value="<?php echo $row->tag_name;?>"> <?php echo $row->tag_name;?>
+                                                </label>
+                                            </div>
+                                            <?php endforeach;?>
+                                
                                 </div>
                             </div>
+                            
                         </div>
 
                         <div class="col-md-4">
@@ -58,16 +60,12 @@
                                             <label style="margin-top: 8px;">Jumlah</label>
                                             <input type="number" name="sum" class="form-control" placeholder="Jumlah Barang" required>
                                         </div>
-                                        <label>Satuan</label>
-                                        <div style="overflow-y:scroll;height:150px;margin-bottom:30px;">
-                                            <?php foreach ($tag->result() as $row) : ?>
-                                            <div class="form-group">
-                                                <label>
-                                                    <input type="checkbox" name="tag[]" value="<?php echo $row->tag_name;?>"> <?php echo $row->tag_name;?>
-                                                </label>
-                                            </div>
-                                            <?php endforeach;?>
+                                        <div class="form-group">
+                                            <label>Penjelasan</label>
+                                            <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"></textarea>
                                         </div>
+                                        
+                                        
                                         <div class="btn-group btn-group-justified" role="group">
                                             <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> PUBLISH</button>
                                         </div>
