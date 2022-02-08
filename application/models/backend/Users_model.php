@@ -22,7 +22,7 @@ class Users_model extends CI_Model{
 	}
 
 	function update_user_nopassimg($userid,$nama,$email,$level,$room){
-		$hsl=$this->db->query("UPDATE tbl_user SET user_name='$nama',user_email='$email',user_level='$level',,user_room_id='$room' WHERE user_id='$userid'");
+		$hsl=$this->db->query("UPDATE tbl_user SET user_name='$nama',user_email='$email',user_level='$level',user_room_id='$room' WHERE user_id='$userid'");
 		return $hsl;
 	}
 
@@ -32,7 +32,7 @@ class Users_model extends CI_Model{
 	}
 
 	function update_user_noimg($userid,$nama,$email,$pass,$level,$room){
-		$hsl=$this->db->query("UPDATE tbl_user SET user_name='$nama',user_email='$email',user_password=MD5('$pass'),user_level='$level',,user_room_id='$room' WHERE user_id='$userid'");
+		$hsl=$this->db->query("UPDATE tbl_user SET user_name='$nama',user_email='$email',user_password=MD5('$pass'),user_level='$level',user_room_id='$room' WHERE user_id='$userid'");
 		return $hsl;
 	}
 

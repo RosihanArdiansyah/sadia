@@ -29,7 +29,7 @@
                                                 <th>No</th>
                                                 <th>Photo</th>
                                                 <th>Name</th>
-                                                <th>Username</th>
+                                                <th>NIP</th>
                                                 <th>Password</th>
                                                 <th>Level</th>
                                                 <th>Status</th>
@@ -122,7 +122,7 @@
                                         <input type="text" name="nama" class="form-control" placeholder="Name" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                        <input type="username" name="email" class="form-control" placeholder="Email" required>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password" class="form-control" placeholder="Password" required>
@@ -184,7 +184,7 @@
                                             <input type="text" name="nama" value="<?php echo $row->user_name;?>" class="form-control" placeholder="Name" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" name="email" value="<?php echo $row->user_email;?>" class="form-control" placeholder="Email" required>
+                                            <input type="username" name="email" value="<?php echo $row->user_email;?>" class="form-control" placeholder="Email" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" class="form-control" placeholder="Password">
@@ -221,7 +221,6 @@
                                                     <?php endforeach;?>
                                             </select>
                                         </div>
-                                        
                                     </div>
                                 </div>
 

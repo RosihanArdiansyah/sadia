@@ -44,7 +44,7 @@
                                 <?php echo $this->session->flashdata('msg');?>
                                 <form class="m-t-md" action="<?php echo site_url('login/auth');?>" method="post">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" name="username" placeholder="Email" required>
+                                        <input type="username" class="form-control" name="username" placeholder="NIP" required>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="password" placeholder="Password" required>
