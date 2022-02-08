@@ -41,10 +41,10 @@
                                                     <th>Jumlah</th>
                                                     <th>Satuan</th>
                                                     <th>Penjelasan</th>
-                                                    <?php if($this->session->userdata('access')=='1'):?>
-                                                        <th style="text-align: center;width: 120px;">Action</th>
+                                                    <?php if($this->session->userdata('access')==2):?>
+                                                        <th style="text-align: center;width: 120px;">Status</th>
                                                     <?php else:?>
-                                                    <th style="text-align: center;">Status</th>
+                                                    <th style="text-align: center;">Action</th>
                                                     <?php endif;?>
                                                 </tr>
                                             </thead>
@@ -52,7 +52,7 @@
                                             <?php 
                                                 $no=0;
                                                 foreach ($data->result() as $row):
-                                                    if($this->session->userdata('access')=='2'):
+                                                    if($this->session->userdata('access')==2):
                                                         if($this->session->userdata('id')==$row->user_id):
                                                    
                                                     $no++;
@@ -65,7 +65,7 @@
                                                     <td><?php echo $row->post_sum;?></td>
                                                     <td><?php echo $row->post_tags;?></td>
                                                     <td><?php echo $row->post_description;?></td>
-                                                    <?php if($this->session->userdata('access')=='1'):?>
+                                                    <?php if($this->session->userdata('access')==1|| $this->session->userdata('access')==3 ):?>
                                                         <td style="text-align: center;">
                                                             <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
                                                             <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>

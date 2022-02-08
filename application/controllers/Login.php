@@ -30,13 +30,22 @@ class Login extends CI_Controller{
                 	$this->session->set_userdata('name',$name);
                 	redirect('halamanbelakang/dashboard');
 
-             	}else{ //Others User 
-                 	$this->session->set_userdata('access','2');
+             	}elseif($x['user_level']=='2'){ //halamaninputnya
+                	$this->session->set_userdata('access','2');
                 	$id=$x['user_id'];
                 	$name=$x['user_name'];
                 	$this->session->set_userdata('id',$id);
                 	$this->session->set_userdata('name',$name);
                 	redirect('halamanbelakang/dashboard');
+
+             	}elseif($x['user_level']=='3'){ //halamaninputnya
+                	$this->session->set_userdata('access','3');
+                	$id=$x['user_id'];
+                	$name=$x['user_name'];
+                	$this->session->set_userdata('id',$id);
+                	$this->session->set_userdata('name',$name);
+                	redirect('halamanbelakang/dashboard');
+
              	}	
             }else{
                 $url=base_url('halamaninputnya');

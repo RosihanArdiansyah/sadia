@@ -59,9 +59,9 @@ $route['category/(:any)/(:num)']='category/detail/$1/$2';
 $route['tag/(:any)']='tag/detail/$1';
 $route['tag/(:any)/(:num)']='tag/detail/$1/$2';
 $route['search']='result/search/';
-$route['halamaninputnya']='halamanbelakang/login';
+$route['halamaninputnya']='login';
 $route['welcome']='Welcome';
-$route['logout']='halamanbelakang/login/logout';
+$route['logout']='login/logout';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
