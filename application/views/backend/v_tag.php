@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- Title -->
-        <title>Tags</title>
+        <title>Satuan</title>
         
         <?php include 'v_header.php'; ?>
         
@@ -14,12 +14,12 @@
         <?php include 'v_sidebar.php'; ?>   <!-- Page Sidebar -->
             <div class="page-inner">
                 <div class="page-title">
-                    <h3>Tags</h3>
+                    <h3>Satuan</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="<?php echo site_url('halamanbelakang/dashboard');?>">Dashboard</a></li>
                             <li><a href="#">Post</a></li>
-                            <li class="active">Tag</li>
+                            <li class="active">satuan</li>
                         </ol>
                     </div>
                 </div>
