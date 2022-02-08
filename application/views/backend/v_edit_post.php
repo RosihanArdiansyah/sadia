@@ -74,9 +74,28 @@
                                     <div class="form-group">
                                         <label>Penjelasan</label>
                                             <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"><?php echo $b['post_description'];?></textarea>
+                                        <label>Status</label>
+                                        <select class="form-control" name="status" required>
+                                            
+                                                <?php if($b['post_status']=='0'):?>
+                                                    <option value="0" selected>Sedang Diproses</option>
+                                                    <option value="1">Diterima</option>
+                                                    <option value="2">Ditolak</option>
+                                                <?php elseif($b['post_status']=='1'):?>
+                                                    <option value="0">Sedang Diproses</option>
+                                                    <option value="1" selected>Diterima</option>
+                                                    <option value="2">Ditolak</option>
+                                                <?php elseif($b['post_status']=='2'):?>
+                                                    <option value="0" >Sedang Diproses</option>
+                                                    <option value="1">Diterima</option>
+                                                    <option value="2"selected>Ditolak</option>
+                                                <?php endif;?>
+                                            </select>
                                     </div>
                                     <div class="btn-group btn-group-justified" role="group">
-                                        <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> PUBLISH</button>
+                                        <input type="hidden" name="post_id" value="<?php echo $b['post_id'];?>" required>
+                                        <input type="hidden" name="post_user_id" value="<?php echo $b['post_user_id'];?>" required>
+                                        <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> UPDATE</button>
                                     </div>
                                 </div>
                             </div>

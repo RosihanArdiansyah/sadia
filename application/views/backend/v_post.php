@@ -41,7 +41,11 @@
                                                     <th>Jumlah</th>
                                                     <th>Satuan</th>
                                                     <th>Penjelasan</th>
-                                                    <th style="text-align: center;width: 120px;">Action</th>
+                                                    <?php if($this->session->userdata('access')=='1'):?>
+                                                        <th style="text-align: center;width: 120px;">Action</th>
+                                                    <?php else:?>
+                                                    <th style="text-align: center;">Status</th>
+                                                    <?php endif;?>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -61,21 +65,37 @@
                                                     <td><?php echo $row->post_sum;?></td>
                                                     <td><?php echo $row->post_tags;?></td>
                                                     <td><?php echo $row->post_description;?></td>
-                                                    <td style="text-align: center;">
-                                                        <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
-                                                        <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
-                                                    </td>
+                                                    <?php if($this->session->userdata('access')=='1'):?>
+                                                        <td style="text-align: center;">
+                                                            <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
+                                                        </td>
+                                                    <?php else:?>
+                                                        <td><?php switch ($row->post_status){
+                                                            case 1:
+                                                                echo "Diterima";
+                                                                break;
+                                                              case 2:
+                                                                echo "Ditolak";
+                                                                break;
+                                                              default:
+                                                                echo "Sedang Diproses";
+
+                                                        } 
+                                                            ;?></td>
+                                                    <?php endif;?>
                                                 </tr>
                                                         <?php endif;?>
                                                     <?php else:
                                                         $no++;?>
                                                         <tr>
-                                                            <td><?php echo $no;?></td>
-                                                            <td><?php echo $row->post_title;?></td>
-                                                            <td><?php echo $row->tanggal;?></td>
-                                                            <td><?php echo $row->category_name;?></td>
-                                                            <td><?php echo $row->post_sum;?></td>
-                                                            <td><?php echo $row->post_tags;?></td>
+                                                        <td><?php echo $no;?></td>
+                                                        <td><?php echo $row->user_name;?></td>
+                                                        <td><?php echo $row->category_name;?></td>
+                                                        <td><?php echo $row->tanggal;?></td>
+                                                        <td><?php echo $row->post_sum;?></td>
+                                                        <td><?php echo $row->post_tags;?></td>
+                                                        <td><?php echo $row->post_description;?></td>
                                                             <td style="text-align: center;">
                                                                 <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
                                                                 <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
