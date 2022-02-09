@@ -51,6 +51,7 @@ class Rent extends CI_Controller{
 			'rent_description'	=> $description,
 			'rent_sum' => $sum,
 			'rent_status' 	   => 0,
+			'rent_acc' 	   => 0,
 	        'rent_user_id'	   => $this->session->userdata('id')
 		);
 
@@ -68,6 +69,7 @@ class Rent extends CI_Controller{
 		$category = $this->input->rent('category',TRUE);
 		$sum = $this->input->rent('sum',TRUE);
 		$status = $this->input->rent('status',TRUE);
+		$acc = $this->input->rent('acc',TRUE);
 		$dataRent = array();		
 		$xtags[]=$this->input->rent('tag');
 		foreach($xtags as $tag){
@@ -82,6 +84,7 @@ class Rent extends CI_Controller{
 			'rent_description'	=> $description,
 			'rent_sum' => $sum,
 			'rent_status' 	   => $status,
+			'rent_acc' 	   => $acc,
 	        'rent_user_id'	   => $user_id
 		);
 		

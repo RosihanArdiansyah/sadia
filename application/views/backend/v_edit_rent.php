@@ -66,7 +66,7 @@
                                         <label>Penjelasan</label>
                                             <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"><?php echo $b['rent_description'];?></textarea>
                                         <label>Status</label>
-                                        <select class="form-control" name="status" required>
+                                            <select class="form-control" name="status" required>
                                             
                                                 <?php if($b['rent_status']=='0'):?>
                                                     <option value="0" selected>Sedang Diproses</option>
@@ -80,6 +80,23 @@
                                                     <option value="0" >Sedang Diproses</option>
                                                     <option value="1">Diterima</option>
                                                     <option value="2"selected>Ditolak</option>
+                                                <?php endif;?>
+                                            </select>
+                                        <label>Disetujui?</label>
+                                            <select class="form-control" name="acc" required>
+                                            
+                                                <?php if($b['rent_acc']=='0'):?>
+                                                    <option value="0" selected>Sedang Diproses</option>
+                                                    <option value="1">Ya</option>
+                                                    <option value="2">Tidak</option>
+                                                <?php elseif($b['rent_acc']=='1'):?>
+                                                    <option value="0">Sedang Diproses</option>
+                                                    <option value="1" selected>Ya</option>
+                                                    <option value="2">Tidak</option>
+                                                <?php elseif($b['rent_acc']=='2'):?>
+                                                    <option value="0" >Sedang Diproses</option>
+                                                    <option value="1">Ya</option>
+                                                    <option value="2"selected>Tidak</option>
                                                 <?php endif;?>
                                             </select>
                                     </div>

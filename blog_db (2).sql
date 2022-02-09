@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2022 at 03:26 PM
+-- Generation Time: Feb 09, 2022 at 12:12 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -43,80 +43,6 @@ INSERT INTO `tbl_about` (`about_id`, `about_image`, `about_description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_album`
---
-
-CREATE TABLE `tbl_album` (
-  `album_id` int(4) NOT NULL,
-  `album_nama` varchar(200) NOT NULL,
-  `album_slug` varchar(200) NOT NULL,
-  `album_deskripsi` text NOT NULL,
-  `album_image` varchar(200) NOT NULL,
-  `album_aktif` enum('Y','N') DEFAULT 'Y',
-  `album_headline` enum('Y','N') DEFAULT 'N',
-  `album_user_id` int(4) NOT NULL,
-  `album_tanggal_add` datetime NOT NULL DEFAULT current_timestamp(),
-  `album_tanggal_update` datetime NOT NULL DEFAULT current_timestamp(),
-  `album_view` int(5) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_album`
---
-
-INSERT INTO `tbl_album` (`album_id`, `album_nama`, `album_slug`, `album_deskripsi`, `album_image`, `album_aktif`, `album_headline`, `album_user_id`, `album_tanggal_add`, `album_tanggal_update`, `album_view`) VALUES
-(32, 'ToT K13', 'tot-k13', '', '5DSC_0996.JPG', 'Y', 'Y', 1, '2016-07-29 00:00:00', '2020-02-12 11:18:47', 0),
-(33, 'Hari Kebangkitan Nasional 20 Mei 2016', 'hari-kebangkitan-nasional-20-mei-2016', '', '20DSC_0128.JPG', 'Y', 'Y', 1, '2016-07-29 00:00:00', '2020-02-12 11:18:47', 0),
-(34, 'Peresmian PAUD DWP LPMP SULAWESI SELATAN', 'peresmian-paud-dwp-lpmp-sulawesi-selatan', 'Galeri Peresmian Paud DWP LPMP Sulawesi Selatan', '8313731628_10209780791064940_4268425165912290319_n.jpg', 'Y', 'Y', 1, '2016-08-05 00:00:00', '2020-02-12 11:18:47', 0),
-(35, 'Perlombaan 17 Agustus', 'perlombaan-17-agustus', 'galeri untuk perlombaan 17 agustus-an', '11__13920804_10210058142358549_6665005792388678628_n.jpg', 'Y', 'Y', 1, '2016-08-22 00:00:00', '2020-02-12 11:18:47', 0),
-(36, 'Pelatihan Pelayanan Prima dan Pengelolaan Arsip', 'pelatihan-pelayanan-prima-dan-pengelolaan-arsip', 'Kepala LPMP Sulsel membuka kegiatan Pelatihan', '16Pelatihan.jpg', 'Y', 'Y', 1, '2016-09-05 00:00:00', '2020-02-12 11:18:47', 0),
-(37, 'Seleksi dan Pembekalan Calon Kepala Sekolah Kabupaten Pangkep', 'seleksi-dan-pembekalan-calon-kepala-sekolah-kabupaten-pangkep', 'Pembukaan', '91IMG_7702.JPG', 'Y', 'Y', 1, '2016-09-05 00:00:00', '2020-02-12 11:18:47', 0),
-(38, 'Pembukaan Diklat Calon Kepala Sekolah Oleh Wakil Bupati Sinjai', 'pembukaan-diklat-calon-kepala-sekolah-oleh-wakil-bupati-sinjai', '<p>Pembukaan Diklat Calon Kepala Sekolah Oleh Wakil Bupati Sinjai</p>', '68images00004.jpeg', 'Y', 'Y', 1, '2017-09-15 00:00:00', '2020-02-12 11:18:47', 0),
-(39, 'HUT Ke 14 LPMP Sulawesi Selatan', 'hut-ke-14-lpmp-sulawesi-selatan', '<p>Peringatan&nbsp;HUT Ke 14 LPMP Sulawesi Selatan</p>', '62Pemotongan Tumpeng.jpg', 'Y', 'Y', 1, '2017-07-24 00:00:00', '2020-02-12 11:18:47', 0),
-(40, 'Pengambilan Sumpah PNS di Lingkungan LPMP Sulawesi Selatan', 'pengambilan-sumpah-pns-di-lingkungan-lpmp-sulawesi-selatan', '', '40Pengambilan Sumpah PNS 3.jpg', 'Y', 'Y', 1, '2017-05-26 00:00:00', '2020-02-12 11:18:47', 0),
-(41, 'Anjangsana Dharmawanita LPMP Sulsel Ke Panti Asuhan Cahaya Resky', 'anjangsana-dharmawanita-lpmp-sulsel-ke-panti-asuhan-cahaya-resky', '', '11Panti Asuhan Cahaya Resky.jpg', 'Y', 'Y', 1, '2017-06-20 00:00:00', '2020-02-12 11:18:47', 0),
-(42, 'Pembukaan Kegiatan Sosialisasi Penjaminan Mutu Pendidikan, Sekolah Model dan Sekolah Imbas', 'pembukaan-kegiatan-sosialisasi-penjaminan-mutu-pendidikan-sekolah-model-dan-sekolah-imbas', '', '83Pembukaan.jpg', 'Y', 'Y', 1, '2017-03-13 00:00:00', '2020-02-12 11:18:47', 0),
-(43, 'Maulid Nabi Muhammad SAW', 'maulid-nabi-muhammad-saw', '', '96Pegawai PNS & Honorer Terbaik 1.jpg', 'Y', 'Y', 1, '2017-01-03 00:00:00', '2020-02-12 11:18:47', 0),
-(44, 'Upacara Memperingati Hari Kesaktian Pancasila (2 Oktober 2017)', 'upacara-memperingati-hari-kesaktian-pancasila-2-oktober-2017', '', '9922251348_10212092445523931_202912256_o.jpg', 'Y', 'Y', 1, '2017-10-02 00:00:00', '2020-02-12 11:18:47', 0),
-(45, 'Pengukuhan Pengurus DW Persatuan LPMP Sulawesi Selatan', 'pengukuhan-pengurus-dw-persatuan-lpmp-sulawesi-selatan', '', '42Foto Bersama.jpg', 'Y', 'Y', 1, '2017-01-03 00:00:00', '2020-02-12 11:18:47', 0),
-(46, 'Pembukaan Diklat Calon Kepala Sekolah Kab. Soppeng Oleh Bupati Kab. Soppeng', 'pembukaan-diklat-calon-kepala-sekolah-kab-soppeng-oleh-bupati-kab-soppeng', '', '4722278920_10212092449804038_728856487_o.jpg', 'Y', 'Y', 1, '2017-10-02 00:00:00', '2020-02-12 11:18:47', 0),
-(47, 'Rapat Koordinasi & Penandatanganan MOU Persiapan Seleksi CPNS Kemenag Bekerjasama Dengan LPMP Sulsel', 'rapat-koordinasi--penandatanganan-mou-persiapan-seleksi-cpns-kemenag-bekerjasama-dengan-lpmp-sulsel', '', '2122278936_10212092456084195_1932353353_o.jpg', 'Y', 'Y', 1, '2017-10-03 00:00:00', '2020-02-12 11:18:47', 0),
-(48, 'Serah Terima Jabatan, Pejabat Eselon Empat di LPMP Sulawesi Selatan Tahun 2017', 'serah-terima-jabatan-pejabat-eselon-empat-di-lpmp-sulawesi-selatan-tahun-2017', '', '70Foto Bersama.jpg', 'Y', 'Y', 1, '2017-09-08 00:00:00', '2020-02-12 11:18:47', 0),
-(49, 'Bimtek Calon Assesor PKG dan Kepala Sekolah SD & SMP Tahun 2017 Kab. Toraja Utara', 'bimtek-calon-assesor-pkg-dan-kepala-sekolah-sd--smp-tahun-2017-kab-toraja-utara', '', '7710Sambutan dan Arahan oleh Kepala LPMP.jpeg', 'Y', 'Y', 1, '2017-09-18 00:00:00', '2020-02-12 11:18:47', 0),
-(50, 'Upacara Bendera di SMPN 1 Rantepao', 'upacara-bendera-di-smpn-1-rantepao', '', '4292WhatsApp Image 2017-10-05 at 00.29.55.jpeg', 'Y', 'Y', 1, '2017-09-18 00:00:00', '2020-02-12 11:18:47', 0),
-(51, 'Upacara Bendera di SMPN 1 Bulukumba (9/10/2017)', 'upacara-bendera-di-smpn-1-bulukumba-9102017', '', '4WhatsApp Image 2017-10-09 at 08.15.10 (1).jpeg', 'Y', 'Y', 1, '2017-10-09 00:00:00', '2020-02-12 11:18:47', 0),
-(52, 'Sosialisasi Penguatan Sistem Penjaminan Mutu Pendidikan di Kab. Bulukumba', 'sosialisasi-penguatan-sistem-penjaminan-mutu-pendidikan-di-kab-bulukumba', '', '9WhatsApp Image 2017-10-09 at 10.50.30 (1).jpeg', 'Y', 'Y', 1, '2017-10-09 00:00:00', '2020-02-12 11:18:47', 0),
-(53, 'Pelatihan Penyusunan Kurikulum Kab.Luwu Timur (10/10/2017)', 'pelatihan-penyusunan-kurikulum-kabluwu-timur-10102017', '', '41Pembukaan Kegiatan oleh Sekretaris Dinas Pendidikan Kab. Luwu Timur, Bapak Amrullah.jpeg', 'Y', 'Y', 1, '2017-10-10 00:00:00', '2020-02-12 11:18:47', 0),
-(54, 'Pekan HUT Sulsel ke 348 (16/10/2017)', 'pekan-hut-sulsel-ke-348-16102017', '', '55WhatsApp Image 2017-10-16 at 07.47.34.jpeg', 'Y', 'Y', 1, '2017-10-16 00:00:00', '2020-02-12 11:18:47', 0),
-(55, 'Wisuda ke 52 Unibos, LPMP Sulsel & Unibos Tandatangani MoU Kerjasama Penjaminan Mutu Pendidikan', 'wisuda-ke-52-unibos-lpmp-sulsel--unibos-tandatangani-mou-kerjasama-penjaminan-mutu-pendidikan', '', '30WhatsApp Image 2017-10-17 at 12.24.09.jpeg', 'Y', 'Y', 1, '2017-10-17 00:00:00', '2020-02-12 11:18:47', 0),
-(56, 'Dialog Akbar Bersama Ikatan Guru Honor Indonesia (29/10/2017)', 'dialog-akbar-bersama-ikatan-guru-honor-indonesia-29102017', '', '76WhatsApp Image 2017-10-29 at 16.20.21 (1).jpeg', 'Y', 'Y', 1, '2017-10-29 00:00:00', '2020-02-12 11:18:47', 0),
-(57, 'Orasi Ilmiah dan Pengukuhan Widyaiswara Ahli Utama (30/10/2017)', 'orasi-ilmiah-dan-pengukuhan-widyaiswara-ahli-utama-30102017', '', '45WhatsApp Image 2017-10-30 at 18.33.43.jpeg', 'Y', 'Y', 1, '2017-10-30 00:00:00', '2020-02-12 11:18:47', 0),
-(58, 'Sosialisai Anti Fraud oleh Inspetorat Kemdikbud (1/11/2017)', 'sosialisai-anti-fraud-oleh-inspetorat-kemdikbud-1112017', '', '37WhatsApp Image 2017-11-01 at 12.40.19.jpeg', 'Y', 'Y', 1, '2017-11-01 00:00:00', '2020-02-12 11:18:47', 0),
-(59, 'ULANG TAHUN PGRI DAN PEKAN OLAHRAGA DAN SENI 2017 DI KABUPATEN LUWU TIMUR (23/11/2017)', 'ulang-tahun-pgri-dan-pekan-olahraga-dan-seni-2017-di-kabupaten-luwu-timur-23112017', '<p><a href=\"../berita-467-ulang-tahun-pgri-dan-pekan-olahraga-dan-seni-2017-di-kabupaten-luwu-timur-23112017.html\">https://lpmpsulsel.kemdikbud.go.id/berita-467-ulang-tahun-pgri-dan-pekan-olahraga-dan-seni-2017-di-kabupaten-luwu-timur-23112017.html</a></p>', '10hargur2.jpg', 'Y', 'Y', 1, '2017-11-23 00:00:00', '2020-02-12 11:18:47', 0),
-(60, 'Hari Aksara Internasional ke 52 Tahun 2017 di Malino (4/12/2017)', 'hari-aksara-internasional-ke-52-tahun-2017-di-malino-4122017', '', '66aksara4.jpeg', 'Y', 'Y', 1, '2017-12-04 00:00:00', '2020-02-12 11:18:47', 0),
-(61, 'Pelatihan Kepala / Pengelola Laboratorium Tingkat SMP/MTS Kab.Enrekang', 'pelatihan-kepala--pengelola-laboratorium-tingkat-smpmts-kabenrekang', '', '59laboratorium2.jpeg', 'Y', 'Y', 1, '2017-12-05 00:00:00', '2020-02-12 11:18:47', 0),
-(62, 'Diklat Calon Kepala Sekolah Kab.Luwu Timur (In Service Learning 2)', 'diklat-calon-kepala-sekolah-kabluwu-timur-in-service-learning-2', '', '21cakeplutim10.jpeg', 'Y', 'Y', 1, '2017-11-28 00:00:00', '2020-02-12 11:18:47', 0),
-(63, 'Peringatan Maulid Nabi Muhammad SAW LPMP Sulawesi Selatan (6/12/2017)', 'peringatan-maulid-nabi-muhammad-saw-lpmp-sulawesi-selatan-6122017', '', '36maulid20172.jpeg', 'Y', 'Y', 1, '2017-12-06 00:00:00', '2020-02-12 11:18:47', 0),
-(64, 'Pembukaan Diseminasi PMP (24/12/2017)', 'pembukaan-diseminasi-pmp-24122017', '', '77dise3.jpg', 'Y', 'Y', 1, '2017-12-24 00:00:00', '2020-02-12 11:18:47', 0),
-(65, 'Peresmian Gedung Education Center LPMP Sulsel (24/12/2017)', 'peresmian-gedung-education-center-lpmp-sulsel-24122017', '', '96gedung1.jpg', 'Y', 'Y', 1, '2017-12-24 00:00:00', '2020-02-12 11:18:47', 0),
-(66, 'Pengumuman Pemenang Diseminasi Sekolah Model (24/12/2017)', 'pengumuman-pemenang-diseminasi-sekolah-model-24122017', '', '14sekmodterbaik1.jpg', 'Y', 'Y', 1, '2017-12-24 00:00:00', '2020-02-12 11:18:47', 0),
-(67, 'Pameran Sekolah Model (24/12/2017)', 'pameran-sekolah-model-24122017', '', '40stand1.jpg', 'Y', 'Y', 1, '2017-12-24 00:00:00', '2020-02-12 11:18:47', 0),
-(68, 'RAPAT UMUM LEMBAGA PENJAMINAN MUTU PENDIDIKAN SULAWESI SELATAN TAHUN 2018', 'rapat-umum-lembaga-penjaminan-mutu-pendidikan-sulawesi-selatan-tahun-2018', '', '91ru1.jpg', 'Y', 'Y', 1, '2018-01-03 00:00:00', '2020-02-12 11:18:47', 0),
-(69, 'KUNJUNGAN KERJA ANGGOTA DPRD KOMISI II KAB. SELAYAR DI LPMP SULAWESI SELATAN', 'kunjungan-kerja-anggota-dprd-komisi-ii-kab-selayar-di-lpmp-sulawesi-selatan', '<p style=\"text-align: justify;\">Kunjungan kerja anggota DPRD Komisi II Kab. Selayar pada hari Rabu, 7 Februari 2018 di LPMP Sulawesi Selatan, dalam rangka memperoleh informasi tentang Penjaminan Mutu Pendidikan seperti Pemetaan Mutu Pendidikan (PMP), Sekolah Model, dan Program Kurikulum 13. Rombongan diterima oleh Pejabat Struktural dan Fungsional LPMP Sulawesi Selatan di Ruang Rapat lt. 2 Kantor LPMP Sulawesi Selatan.</p>\r\n<p style=\"text-align: justify;\">Rangkaian acara kunjungan kerja ini diawali dengan sambutan selamat datang oleh LPMP Sulawesi Selatan diwakili oleh Kepala Seksi Pemetaan Mutu Pendidikan, H. Burhan T., SE.,MM. dilanjutkan pemaparan materi tentang Penjaminan Mutu Pendidikan oleh Dr. Mardin, M.Pd., Widyaiswara LPMP Sulawesi Selatan.</p>', '16dprdselayar5.jpg', 'Y', 'Y', 1, '2018-02-08 00:00:00', '2020-02-12 11:18:47', 0),
-(70, 'Silaturahim Menteri Pendidikan Dan Kebudayaan  Dalam Kegiatan Sosialisasi Penjaminan Mutu Pendidikan', 'silaturahim-menteri-pendidikan-dan-kebudayaan--dalam-kegiatan-sosialisasi-penjaminan-mutu-pendidikan', '', '45men1.jpg', 'Y', 'Y', 1, '2018-02-22 00:00:00', '2020-02-12 11:18:47', 0),
-(71, 'Kunjungan Direktur Jenderal Pendidikan Dasar dan Menengah ke LPMP Sulawesi Selatan (12/02/2018)', 'kunjungan-direktur-jenderal-pendidikan-dasar-dan-menengah-ke-lpmp-sulawesi-selatan-12022018', '', '31dir7.jpg', 'Y', 'Y', 1, '2018-02-12 00:00:00', '2020-02-12 11:18:47', 0),
-(72, 'Sosialisasi Program Reformasi Birokrasi Kementerian Pendidikan dan Kebudayaan Tahun 2018', 'sosialisasi-program-reformasi-birokrasi-kementerian-pendidikan-dan-kebudayaan-tahun-2018', '', '32WhatsApp Image 2018-04-01 at 16.14.53.jpeg', 'Y', 'Y', 1, '2018-03-28 00:00:00', '2020-02-12 11:18:47', 0),
-(73, 'Reviu Peta Manajemen Resiko LPMP Sulawesi Selatan', 'reviu-peta-manajemen-resiko-lpmp-sulawesi-selatan', '', '4129513214_10215656139784986_2862482697899474944_n.jpg', 'Y', 'Y', 1, '2018-03-18 00:00:00', '2020-02-12 11:18:47', 0),
-(74, 'Sosialisasi Prosedur Operasional Standar dan Standar Pelayanan LPMP Sulawesi Selatan', 'sosialisasi-prosedur-operasional-standar-dan-standar-pelayanan-lpmp-sulawesi-selatan', '', '4928467645_10215432720479643_700857334273275769_n.jpg', 'Y', 'Y', 1, '2018-03-01 00:00:00', '2020-02-12 11:18:47', 0),
-(75, 'Workshop Penatausahaan Barang Milik Negara LPMP Sulawesi Selatan', 'workshop-penatausahaan-barang-milik-negara-lpmp-sulawesi-selatan', '', '729473233_10215655455847888_3085506270677958656_n.jpg', 'Y', 'Y', 1, '2018-03-24 00:00:00', '2020-02-12 11:18:47', 0),
-(76, 'Penyerahan Piagam Perhargaan oleh Menteri Pendidikan & Kebudayaan Terkait SPI LPMP Sulawesi Selatan', 'penyerahan-piagam-perhargaan-oleh-menteri-pendidikan--kebudayaan-terkait-spi-lpmp-sulawesi-selatan', '', '56WhatsApp Image 2018-04-01 at 16.16.20 (1).jpeg', 'Y', 'Y', 1, '2018-04-02 00:00:00', '2020-02-12 11:18:47', 0),
-(77, 'BIMBINGAN TEKNIS DAPODIKDASMEN TINGKAT PROPINSI TAHAP I ', 'bimbingan-teknis-dapodikdasmen-tingkat-propinsi-tahap-i-', '', '73WhatsApp Image 2018-04-04 at 21.23.26.jpeg', 'Y', 'Y', 1, '2018-04-05 00:00:00', '2020-02-12 11:18:47', 0),
-(78, 'Upacara Peringatan Hari Kebangkitan Nasional Tahun 2018', 'upacara-peringatan-hari-kebangkitan-nasional-tahun-2018', '<p><img src=\"../js/kcfinder/upload/image/WhatsApp%20Image%202018-05-21%20at%2010.08.32.jpeg\" alt=\"\" width=\"1280\" height=\"853\" /></p>', '92WhatsApp Image 2018-05-21 at 10.08.32.jpeg', 'Y', 'Y', 1, '2018-05-21 00:00:00', '2020-02-12 11:18:47', 0),
-(79, 'Turut Berduka Cita', 'turut-berduka-cita', '<p>Turut Berduka Cita</p>', '31246ffe805a46d93996a5e6b1b8ef31.jpg', 'Y', 'Y', 1, '2018-07-05 00:00:00', '2020-02-12 11:18:47', 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_category`
 --
 
@@ -135,24 +61,6 @@ CREATE TABLE `tbl_category` (
 
 INSERT INTO `tbl_category` (`category_id`, `category_name`, `category_code`, `category_price`, `category_sum`, `category_date`) VALUES
 (3, 'Jersey home', 'Anfield1', 1, 14, '2022-02-02');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_comment`
---
-
-CREATE TABLE `tbl_comment` (
-  `comment_id` int(11) NOT NULL,
-  `comment_date` timestamp NULL DEFAULT current_timestamp(),
-  `comment_name` varchar(60) DEFAULT NULL,
-  `comment_email` varchar(90) DEFAULT NULL,
-  `comment_message` text DEFAULT NULL,
-  `comment_status` int(11) DEFAULT 0,
-  `comment_parent` int(11) DEFAULT 0,
-  `comment_post_id` int(11) DEFAULT NULL,
-  `comment_image` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -451,20 +359,6 @@ INSERT INTO `tbl_galeri` (`galeri_id`, `galeri_album_id`, `galeri_nama`, `galeri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_headline`
---
-
-CREATE TABLE `tbl_headline` (
-  `id_headline` int(4) NOT NULL,
-  `jenis_headline` int(3) NOT NULL,
-  `judul_headline` varchar(200) NOT NULL,
-  `gambar_headline` varchar(200) NOT NULL,
-  `tipe_headline` enum('atas','bawah') DEFAULT 'atas'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_home`
 --
 
@@ -482,29 +376,6 @@ CREATE TABLE `tbl_home` (
 
 INSERT INTO `tbl_home` (`home_id`, `home_caption_1`, `home_caption_2`, `home_bg_heading`, `home_bg_testimonial`) VALUES
 (1, 'Driven . Inspired . Smart', 'Personal Blog', 'image_4.png', 'image_8.png');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_inbox`
---
-
-CREATE TABLE `tbl_inbox` (
-  `inbox_id` int(11) NOT NULL,
-  `inbox_name` varchar(50) DEFAULT NULL,
-  `inbox_email` varchar(80) DEFAULT NULL,
-  `inbox_subject` varchar(200) DEFAULT NULL,
-  `inbox_message` text DEFAULT NULL,
-  `inbox_created_at` timestamp NULL DEFAULT current_timestamp(),
-  `inbox_status` varchar(2) DEFAULT '0' COMMENT '0=Unread, 1=Read'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_inbox`
---
-
-INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_name`, `inbox_email`, `inbox_subject`, `inbox_message`, `inbox_created_at`, `inbox_status`) VALUES
-(1, 'Fikri', 'fikrifiver97@gmail.com', 'Request Artikel', 'Saya mau request artikel tentang mindset.', '2019-04-11 03:46:56', '1');
 
 -- --------------------------------------------------------
 
@@ -669,47 +540,6 @@ INSERT INTO `tbl_navbar` (`navbar_id`, `navbar_name`, `navbar_slug`, `navbar_dir
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_navbar_admin`
---
-
-CREATE TABLE `tbl_navbar_admin` (
-  `navbar_id` int(3) NOT NULL,
-  `navbar_name` varchar(100) NOT NULL,
-  `navbar_slug` varchar(100) NOT NULL,
-  `navbar_parent_id` int(3) NOT NULL,
-  `navbar_urutan` int(3) NOT NULL DEFAULT 1,
-  `navbar_icon` varchar(100) NOT NULL,
-  `navbar_is_droplink` enum('Y','N') DEFAULT 'N'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_navbar_admin`
---
-
-INSERT INTO `tbl_navbar_admin` (`navbar_id`, `navbar_name`, `navbar_slug`, `navbar_parent_id`, `navbar_urutan`, `navbar_icon`, `navbar_is_droplink`) VALUES
-(1, 'Dashboard', 'dashboard', 0, 1, 'icon-home', 'N'),
-(2, 'Post', 'post', 0, 2, 'icon-pin', 'Y'),
-(3, 'Page', 'page', 0, 3, 'icon-bubbles', 'Y'),
-(5, 'Inbox', 'inbox', 0, 5, 'icon-envelope', 'N'),
-(6, 'Comments', 'comment', 0, 6, 'icon-bubbles', 'N'),
-(7, 'Subscriber', 'subsriber', 0, 7, 'icon-users', 'N'),
-(8, 'Testimonials', 'testimonial', 0, 8, 'icon-like', 'N'),
-(9, 'Users', 'users', 0, 9, 'icon-user', 'N'),
-(10, 'Settings', 'settings', 0, 10, 'icon-settings', 'Y'),
-(12, 'Add New', 'post/add_new', 2, 1, '', 'N'),
-(13, 'Post List', 'post', 2, 2, '', 'N'),
-(14, 'Category', 'category', 2, 3, '', 'N'),
-(15, 'Tag', 'tag', 2, 4, '', 'N'),
-(16, 'Add New', 'page/add_new', 3, 1, '', 'N'),
-(17, 'Page List', 'page', 3, 2, '', 'N'),
-(20, 'Basic', 'settings', 10, 1, '', 'N'),
-(21, 'Home', 'home_setting', 10, 2, '', 'N'),
-(22, 'About', 'about_setting', 10, 3, '', 'N'),
-(23, 'Navbar', 'navbar', 10, 4, '', 'N');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_pages`
 --
 
@@ -759,7 +589,8 @@ CREATE TABLE `tbl_posts` (
   `post_last_update` datetime DEFAULT NULL,
   `post_sum` int(100) NOT NULL DEFAULT 1,
   `post_tags` text COLLATE latin1_general_ci DEFAULT NULL,
-  `post_status` int(3) DEFAULT NULL,
+  `post_status` int(3) DEFAULT 0,
+  `post_acc` int(3) NOT NULL DEFAULT 0,
   `post_description` text COLLATE latin1_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -767,22 +598,9 @@ CREATE TABLE `tbl_posts` (
 -- Dumping data for table `tbl_posts`
 --
 
-INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_category_id`, `post_date`, `post_user_id`, `post_last_update`, `post_sum`, `post_tags`, `post_status`, `post_description`) VALUES
-(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 1, 'beli anu'),
-(2, 'anu', 3, '2022-02-03 11:22:14', 1, NULL, 1, 'Lusin', 0, 'beli anu');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_post_views`
---
-
-CREATE TABLE `tbl_post_views` (
-  `view_id` int(11) NOT NULL,
-  `view_date` timestamp NULL DEFAULT current_timestamp(),
-  `view_ip` varchar(50) DEFAULT NULL,
-  `view_post_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_category_id`, `post_date`, `post_user_id`, `post_last_update`, `post_sum`, `post_tags`, `post_status`, `post_acc`, `post_description`) VALUES
+(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 1, 0, 'beli anu'),
+(2, 'anu', 3, '2022-02-03 11:22:14', 1, NULL, 1, 'Lusin', 0, 0, 'beli anu');
 
 -- --------------------------------------------------------
 
@@ -800,6 +618,7 @@ CREATE TABLE `tbl_rents` (
   `rent_sum` int(100) NOT NULL DEFAULT 1,
   `rent_tags` text COLLATE latin1_general_ci DEFAULT NULL,
   `rent_status` int(3) DEFAULT NULL,
+  `rent_acc` int(3) NOT NULL DEFAULT 0,
   `rent_description` text COLLATE latin1_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -807,9 +626,9 @@ CREATE TABLE `tbl_rents` (
 -- Dumping data for table `tbl_rents`
 --
 
-INSERT INTO `tbl_rents` (`rent_id`, `rent_title`, `rent_category_id`, `rent_date`, `rent_user_id`, `rent_last_update`, `rent_sum`, `rent_tags`, `rent_status`, `rent_description`) VALUES
-(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 1, 'beli anu'),
-(2, 'anu', 3, '2022-02-03 11:22:14', 1, NULL, 1, 'Lusin', 0, 'beli anu');
+INSERT INTO `tbl_rents` (`rent_id`, `rent_title`, `rent_category_id`, `rent_date`, `rent_user_id`, `rent_last_update`, `rent_sum`, `rent_tags`, `rent_status`, `rent_acc`, `rent_description`) VALUES
+(1, 'anu', 3, '2022-02-03 11:22:14', 2, NULL, 1, 'Lusin', 1, 0, 'beli anu'),
+(2, 'anu', 3, '2022-02-03 11:22:14', 1, NULL, 1, 'Lusin', 0, 0, 'beli anu');
 
 -- --------------------------------------------------------
 
@@ -861,30 +680,6 @@ INSERT INTO `tbl_site` (`site_id`, `site_name`, `site_title`, `site_description`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_subscribe`
---
-
-CREATE TABLE `tbl_subscribe` (
-  `subscribe_id` int(11) NOT NULL,
-  `subscribe_email` varchar(100) DEFAULT NULL,
-  `subscribe_created_at` timestamp NULL DEFAULT current_timestamp(),
-  `subscribe_status` int(11) DEFAULT 0,
-  `subscribe_rating` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_subscribe`
---
-
-INSERT INTO `tbl_subscribe` (`subscribe_id`, `subscribe_email`, `subscribe_created_at`, `subscribe_status`, `subscribe_rating`) VALUES
-(1, 'fikrifiver97@gmail.com', '2019-04-11 07:40:16', 1, 1),
-(3, 'porthere@gmail.com', '2019-04-11 07:57:28', 1, 0),
-(4, 'mufty@gmail.com', '2019-04-11 07:58:44', 0, 0),
-(5, 'qadalm@gmail.com', '2019-12-28 03:06:50', 0, 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_tags`
 --
 
@@ -902,27 +697,6 @@ INSERT INTO `tbl_tags` (`tag_id`, `tag_name`) VALUES
 (2, 'Gross'),
 (3, 'Kodi'),
 (4, 'Rim');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_testimonial`
---
-
-CREATE TABLE `tbl_testimonial` (
-  `testimonial_id` int(11) NOT NULL,
-  `testimonial_name` varchar(50) DEFAULT NULL,
-  `testimonial_content` text DEFAULT NULL,
-  `testimonial_image` varchar(50) DEFAULT NULL,
-  `testimonial_created_at` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_testimonial`
---
-
-INSERT INTO `tbl_testimonial` (`testimonial_id`, `testimonial_name`, `testimonial_content`, `testimonial_image`, `testimonial_created_at`) VALUES
-(1, 'M Fikri, Founder of mfikri.com', 'Ini adalah source code yang luar biasa. simple, elegan, full responsif, cepat, dan mudah di customize oleh web developer pemula.', 'b4d8e2b191213f72dc41ce768b03b2d9.png', '2020-01-03 03:31:51');
 
 -- --------------------------------------------------------
 
@@ -974,46 +748,10 @@ ALTER TABLE `tbl_about`
   ADD PRIMARY KEY (`about_id`);
 
 --
--- Indexes for table `tbl_album`
---
-ALTER TABLE `tbl_album`
-  ADD PRIMARY KEY (`album_id`);
-
---
 -- Indexes for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
   ADD PRIMARY KEY (`category_id`);
-
---
--- Indexes for table `tbl_comment`
---
-ALTER TABLE `tbl_comment`
-  ADD PRIMARY KEY (`comment_id`);
-
---
--- Indexes for table `tbl_galeri`
---
-ALTER TABLE `tbl_galeri`
-  ADD PRIMARY KEY (`galeri_id`);
-
---
--- Indexes for table `tbl_headline`
---
-ALTER TABLE `tbl_headline`
-  ADD PRIMARY KEY (`id_headline`);
-
---
--- Indexes for table `tbl_home`
---
-ALTER TABLE `tbl_home`
-  ADD PRIMARY KEY (`home_id`);
-
---
--- Indexes for table `tbl_inbox`
---
-ALTER TABLE `tbl_inbox`
-  ADD PRIMARY KEY (`inbox_id`);
 
 --
 -- Indexes for table `tbl_kegiatan`
@@ -1028,30 +766,12 @@ ALTER TABLE `tbl_navbar`
   ADD PRIMARY KEY (`navbar_id`);
 
 --
--- Indexes for table `tbl_navbar_admin`
---
-ALTER TABLE `tbl_navbar_admin`
-  ADD PRIMARY KEY (`navbar_id`);
-
---
--- Indexes for table `tbl_pages`
---
-ALTER TABLE `tbl_pages`
-  ADD PRIMARY KEY (`page_id`);
-
---
 -- Indexes for table `tbl_posts`
 --
 ALTER TABLE `tbl_posts`
   ADD PRIMARY KEY (`post_id`),
   ADD KEY `idx_catid` (`post_category_id`),
   ADD KEY `idx_createdby` (`post_user_id`);
-
---
--- Indexes for table `tbl_post_views`
---
-ALTER TABLE `tbl_post_views`
-  ADD PRIMARY KEY (`view_id`);
 
 --
 -- Indexes for table `tbl_rents`
@@ -1074,22 +794,10 @@ ALTER TABLE `tbl_site`
   ADD PRIMARY KEY (`site_id`);
 
 --
--- Indexes for table `tbl_subscribe`
---
-ALTER TABLE `tbl_subscribe`
-  ADD PRIMARY KEY (`subscribe_id`);
-
---
 -- Indexes for table `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
   ADD PRIMARY KEY (`tag_id`);
-
---
--- Indexes for table `tbl_testimonial`
---
-ALTER TABLE `tbl_testimonial`
-  ADD PRIMARY KEY (`testimonial_id`);
 
 --
 -- Indexes for table `tbl_user`
@@ -1097,12 +805,6 @@ ALTER TABLE `tbl_testimonial`
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `room_id` (`user_room_id`);
-
---
--- Indexes for table `tbl_visitors`
---
-ALTER TABLE `tbl_visitors`
-  ADD PRIMARY KEY (`visit_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1115,46 +817,10 @@ ALTER TABLE `tbl_about`
   MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_album`
---
-ALTER TABLE `tbl_album`
-  MODIFY `album_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
-
---
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `tbl_comment`
---
-ALTER TABLE `tbl_comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_galeri`
---
-ALTER TABLE `tbl_galeri`
-  MODIFY `galeri_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=524;
-
---
--- AUTO_INCREMENT for table `tbl_headline`
---
-ALTER TABLE `tbl_headline`
-  MODIFY `id_headline` int(4) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_home`
---
-ALTER TABLE `tbl_home`
-  MODIFY `home_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `tbl_inbox`
---
-ALTER TABLE `tbl_inbox`
-  MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_kegiatan`
@@ -1169,28 +835,10 @@ ALTER TABLE `tbl_navbar`
   MODIFY `navbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
--- AUTO_INCREMENT for table `tbl_navbar_admin`
---
-ALTER TABLE `tbl_navbar_admin`
-  MODIFY `navbar_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT for table `tbl_pages`
---
-ALTER TABLE `tbl_pages`
-  MODIFY `page_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
 -- AUTO_INCREMENT for table `tbl_posts`
 --
 ALTER TABLE `tbl_posts`
   MODIFY `post_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `tbl_post_views`
---
-ALTER TABLE `tbl_post_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_rents`
@@ -1211,34 +859,16 @@ ALTER TABLE `tbl_site`
   MODIFY `site_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_subscribe`
---
-ALTER TABLE `tbl_subscribe`
-  MODIFY `subscribe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT for table `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
   MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_testimonial`
---
-ALTER TABLE `tbl_testimonial`
-  MODIFY `testimonial_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `tbl_visitors`
---
-ALTER TABLE `tbl_visitors`
-  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

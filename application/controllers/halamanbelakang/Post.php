@@ -51,6 +51,7 @@ class Post extends CI_Controller{
 			'post_description'	=> $description,
 			'post_sum' => $sum,
 			'post_status' 	   => 0,
+			'post_acc'		 	=> 0,
 	        'post_user_id'	   => $this->session->userdata('id')
 		);
 
@@ -68,6 +69,7 @@ class Post extends CI_Controller{
 		$category = $this->input->post('category',TRUE);
 		$sum = $this->input->post('sum',TRUE);
 		$status = $this->input->post('status',TRUE);
+		$acc = $this->input->post('acc',TRUE);
 		$dataPost = array();		
 		$xtags[]=$this->input->post('tag');
 		foreach($xtags as $tag){
@@ -82,6 +84,7 @@ class Post extends CI_Controller{
 			'post_description'	=> $description,
 			'post_sum' => $sum,
 			'post_status' 	   => $status,
+			'post_acc' 	   => $acc,
 	        'post_user_id'	   => $user_id
 		);
 		
