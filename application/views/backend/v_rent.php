@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- Title -->
-        <title>Daftar Permintaan</title>
+        <title>Daftar Peminjaman</title>
         
         <?php include 'v_header.php'; ?>
         
@@ -14,12 +14,12 @@
         <?php include 'v_sidebar.php'; ?>   <!-- Page Sidebar --><!-- Page Sidebar -->
             <div class="page-inner">
                 <div class="page-title">
-                    <h3>Daftar Permintaan</h3>
+                    <h3>Daftar Peminjaman</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="<?php echo site_url('halamanbelakang/dashboard');?>">Dashboard</a></li>
-                            <li><a href="#">Permintaan</a></li>
-                            <li class="active">Daftar Permintaan</li>
+                            <li><a href="#">Peminjaman</a></li>
+                            <li class="active">Daftar Peminjaman</li>
                         </ol>
                     </div>
                 </div>
