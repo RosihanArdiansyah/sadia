@@ -8,7 +8,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <meta name="author" content="LPMP Sulawesi Selatan" />
+        <meta name="author" content="Sadia" />
         <link rel="shortcut icon" href="<?php echo base_url().'theme/diplomat/images/favicon.ico'?>">
 
         <!-- Styles -->
@@ -301,7 +301,7 @@
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; LPMP SULAWESI SELATAN.</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->

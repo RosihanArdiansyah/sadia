@@ -24,7 +24,7 @@
 							<h1>Artikel</h1>
 
 							<div class="breadcrumbs">
-								<a href="#" title="LPMP Sulawesi Selatan">Halaman Depan</a>
+								<a href="#" title="Sadia">Halaman Depan</a>
 								<a href="artikel.html" title="Kumpulan Buletin">Buletin</a>
 								<?php echo $c['title_content'];?>	
 							</div>

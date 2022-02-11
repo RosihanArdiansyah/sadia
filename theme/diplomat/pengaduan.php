@@ -73,7 +73,7 @@
 							<h1>Pengaduan</h1>
 
 							<div class="breadcrumbs">
-								<a href="index.php" title="LPMP Sulawesi Selatan">Halaman Depan</a>
+								<a href="index.php" title="Sadia">Halaman Depan</a>
 								Pengaduan
 							</div>
 						</div>
@@ -89,7 +89,7 @@
 							<div id="central">
 	<div class="content">
 		<h2>Isi Aduan Anda</h2>
-							Format aduan ini ditujukan bagi internal pegawai LPMP Sulawesi Selatan. Untuk pengaduan dari ekternal (guru, dinas pendidikan dan pemerhati pendidikan lainnya), silahkan masuk ke Unit Layanan Terpadu di sini
+							Format aduan ini ditujukan bagi internal pegawai Sadia. Untuk pengaduan dari ekternal (guru, dinas pendidikan dan pemerhati pendidikan lainnya), silahkan masuk ke Unit Layanan Terpadu di sini
 		<div id="message">
 		<form id="frmContact" action="" method="POST" novalidate="novalidate">
 		    

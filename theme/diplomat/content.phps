@@ -62,7 +62,7 @@
 
 	<div class="logo">
 		<span class="tmm_logo">
-			<a title="LPMP Sulawesi Selatan" href="index.php"><b>LPMP</b> Sulawesi Selatan</a>
+			<a title="Sadia" href="index.php"><b>LPMP</b> Sulawesi Selatan</a>
 		</span>
 	</div>
 
@@ -618,7 +618,7 @@
 
 				<div class="large-6 columns">
 					<div class="copyright">
-						Copyright © 2015. ThemeMakers. All rights reserved
+						Copyright ï¿½ 2015. ThemeMakers. All rights reserved
 					</div>
 				</div>
 

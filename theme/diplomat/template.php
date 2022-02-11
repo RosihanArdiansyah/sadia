@@ -110,7 +110,7 @@ error_reporting(0);
 
 	<div class="logo">
 		<span class="tmm_logo">
-			<a title="LPMP Sulawesi Selatan" href="index.php"><b>LPMP</b> Sulawesi Selatan</a>
+			<a title="Sadia" href="index.php"><b>LPMP</b> Sulawesi Selatan</a>
         
 	
 

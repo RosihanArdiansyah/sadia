@@ -46,7 +46,7 @@ class Rent extends CI_Controller{
 
 		$description=htmlspecialchars($this->input->rent('description',TRUE),ENT_QUOTES);
 		$dataRent = array(
-			'rent_category_id'	=> $category,
+			'rent_name'	=> $category,
 			'rent_tags'		=> $tags,
 			'rent_description'	=> $description,
 			'rent_sum' => $sum,
@@ -79,7 +79,7 @@ class Rent extends CI_Controller{
 
 		$description=htmlspecialchars($this->input->rent('description',TRUE),ENT_QUOTES);
 		$dataRent = array(
-			'rent_category_id'	=> $category,
+			'rent_name'	=> $category,
 			'rent_tags'		=> $tags,
 			'rent_description'	=> $description,
 			'rent_sum' => $sum,

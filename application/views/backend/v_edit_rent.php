@@ -35,7 +35,7 @@
                                 <div class="panel-body">
                                     <div class="form-group">        
                                         <label>Barang</label>
-                                            <input type="text" name="sum" value="<?php echo $b['category'];?>" class="form-control" class="form-control" required>
+                                            <input type="text" name="category" value="<?php echo $b['rent_name'];?>" class="form-control" class="form-control" required>
                                         <label style="margin-top: 8px;">Jumlah</label>
                                             <input type="number" name="sum" value="<?php echo $b['rent_sum'];?>" class="form-control" class="form-control" placeholder="Jumlah Barang" required>
                                     </div>
@@ -114,7 +114,7 @@
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; LPMP SULAWESI SELATAN.</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->

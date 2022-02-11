@@ -123,7 +123,7 @@
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; LPMP SULAWESI SELATAN.</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->

@@ -16,7 +16,7 @@
             <div class="page-inner">
                 <div class="page-title">
                     <h3>Dashboard</h3>
-                    <div class="page-breadcrumb""Sadia Mane">
+                    <div class="page-breadcrumb""Sadia">
                         <ol class="breadcrumb">
                             <li><a href="<?php echo site_url('halamanbelakang/dashboard');?>">Home</a></li>
                             <li class="active">Dashboard</li>
@@ -105,7 +105,7 @@
                     </div>
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; SADIA MANE</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia</p>
                 </div>
 				
             </div><!-- Page Inner -->
