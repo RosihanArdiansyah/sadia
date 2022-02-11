@@ -65,7 +65,8 @@
                                     <div class="form-group">
                                         <label>Penjelasan</label>
                                             <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"><?php echo $b['rent_description'];?></textarea>
-                                        <label>Status</label>
+                                            <?php if($this->session->userdata('access')==1):?>
+                                            <label>Status</label>
                                             <select class="form-control" name="status" required>
                                             
                                                 <?php if($b['rent_status']=='0'):?>
@@ -81,7 +82,9 @@
                                                     <option value="1">Diterima</option>
                                                     <option value="2"selected>Ditolak</option>
                                                 <?php endif;?>
+                                                <input type="hidden" name="acc" value="<?php echo $b['rent_acc'];?>" required>
                                             </select>
+                                            <?php elseif($this->session->userdata('access')==3):?>
                                         <label>Disetujui?</label>
                                             <select class="form-control" name="acc" required>
                                             
@@ -99,6 +102,8 @@
                                                     <option value="2"selected>Tidak</option>
                                                 <?php endif;?>
                                             </select>
+                                            <input type="hidden" name="status" value="<?php echo $b['rent_status'];?>" required>
+                                            <?php endif;?>
                                     </div>
                                     <div class="btn-group btn-group-justified" role="group">
                                         <input type="hidden" name="rent_id" value="<?php echo $b['rent_id'];?>" required>

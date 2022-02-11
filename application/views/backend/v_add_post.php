@@ -29,7 +29,7 @@
                         <div class="col-md-8">
                             <div class="panel panel-white">
                                 <div class="panel-body">
-                                    <div class="form-group">        
+                                    <div class="form-group"> 
                                         <label>Barang</label>
                                             <select class="form-control" name="category" required>
                                                 <option value="">-Select Option-</option>
