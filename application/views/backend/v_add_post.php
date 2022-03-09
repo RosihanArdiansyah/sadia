@@ -29,7 +29,7 @@
                         <div class="col-md-8">
                             <div class="panel panel-white">
                                 <div class="panel-body">
-                                    <div class="form-group">        
+                                    <div class="form-group"> 
                                         <label>Barang</label>
                                             <select class="form-control" name="category" required>
                                                 <option value="">-Select Option-</option>
@@ -71,7 +71,7 @@
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; LPMP SULAWESI SELATAN.</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->

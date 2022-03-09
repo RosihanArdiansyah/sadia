@@ -60,7 +60,7 @@
                                                 <tr>
                                                     <td><?php echo $no;?></td>
                                                     <td><?php echo $row->user_name;?></td>
-                                                    <td><?php echo $row->category_name;?></td>
+                                                    <td><?php echo $row->rent_name;?></td>
                                                     <td><?php echo $row->tanggal;?></td>
                                                     <td><?php echo $row->rent_sum;?></td>
                                                     <td><?php echo $row->rent_tags;?></td>
@@ -91,7 +91,7 @@
                                                         <tr>
                                                         <td><?php echo $no;?></td>
                                                         <td><?php echo $row->user_name;?></td>
-                                                        <td><?php echo $row->category_name;?></td>
+                                                        <td><?php echo $row->rent_name;?></td>
                                                         <td><?php echo $row->tanggal;?></td>
                                                         <td><?php echo $row->rent_sum;?></td>
                                                         <td><?php echo $row->rent_tags;?></td>
@@ -107,7 +107,7 @@
                                                         <tr>
                                                         <td><?php echo $no;?></td>
                                                         <td><?php echo $row->user_name;?></td>
-                                                        <td><?php echo $row->category_name;?></td>
+                                                        <td><?php echo $row->rent_name;?></td>
                                                         <td><?php echo $row->tanggal;?></td>
                                                         <td><?php echo $row->rent_sum;?></td>
                                                         <td><?php echo $row->rent_tags;?></td>
@@ -130,7 +130,7 @@
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; LPMP SULAWESI SELATAN.</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->

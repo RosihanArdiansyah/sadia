@@ -74,7 +74,8 @@
                                     <div class="form-group">
                                         <label>Penjelasan</label>
                                             <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"><?php echo $b['post_description'];?></textarea>
-                                        <label>Status</label>
+                                            <?php if($this->session->userdata('access')==1):?>
+                                            <label>Status</label>
                                             <select class="form-control" name="status" required>
                                             
                                                 <?php if($b['post_status']=='0'):?>
@@ -90,10 +91,12 @@
                                                     <option value="1">Diterima</option>
                                                     <option value="2"selected>Ditolak</option>
                                                 <?php endif;?>
+                                                <input type="hidden" name="acc" value="<?php echo $b['post_acc'];?>" required>
                                             </select>
+                                            
+                                            <?php elseif($this->session->userdata('access')==3):?>
                                         <label>Disetujui?</label>
                                             <select class="form-control" name="acc" required>
-                                            
                                                 <?php if($b['post_acc']=='0'):?>
                                                     <option value="0" selected>Sedang Diproses</option>
                                                     <option value="1">Ya</option>
@@ -108,6 +111,8 @@
                                                     <option value="2"selected>Tidak</option>
                                                 <?php endif;?>
                                             </select>
+                                            <input type="hidden" name="status" value="<?php echo $b['post_status'];?>" required>
+                                            <?php endif;?>
                                     </div>
                                     <div class="btn-group btn-group-justified" role="group">
                                         <input type="hidden" name="post_id" value="<?php echo $b['post_id'];?>" required>
@@ -123,7 +128,7 @@
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; LPMP SULAWESI SELATAN.</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->

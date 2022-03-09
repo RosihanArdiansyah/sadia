@@ -35,7 +35,7 @@
                                 <div class="panel-body">
                                     <div class="form-group">        
                                         <label>Barang</label>
-                                            <input type="text" name="sum" value="<?php echo $b['category'];?>" class="form-control" class="form-control" required>
+                                            <input type="text" name="category" value="<?php echo $b['rent_name'];?>" class="form-control" class="form-control" required>
                                         <label style="margin-top: 8px;">Jumlah</label>
                                             <input type="number" name="sum" value="<?php echo $b['rent_sum'];?>" class="form-control" class="form-control" placeholder="Jumlah Barang" required>
                                     </div>
@@ -65,7 +65,8 @@
                                     <div class="form-group">
                                         <label>Penjelasan</label>
                                             <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"><?php echo $b['rent_description'];?></textarea>
-                                        <label>Status</label>
+                                            <?php if($this->session->userdata('access')==1):?>
+                                            <label>Status</label>
                                             <select class="form-control" name="status" required>
                                             
                                                 <?php if($b['rent_status']=='0'):?>
@@ -81,7 +82,9 @@
                                                     <option value="1">Diterima</option>
                                                     <option value="2"selected>Ditolak</option>
                                                 <?php endif;?>
+                                                <input type="hidden" name="acc" value="<?php echo $b['rent_acc'];?>" required>
                                             </select>
+                                            <?php elseif($this->session->userdata('access')==3):?>
                                         <label>Disetujui?</label>
                                             <select class="form-control" name="acc" required>
                                             
@@ -99,6 +102,8 @@
                                                     <option value="2"selected>Tidak</option>
                                                 <?php endif;?>
                                             </select>
+                                            <input type="hidden" name="status" value="<?php echo $b['rent_status'];?>" required>
+                                            <?php endif;?>
                                     </div>
                                     <div class="btn-group btn-group-justified" role="group">
                                         <input type="hidden" name="rent_id" value="<?php echo $b['rent_id'];?>" required>
@@ -114,7 +119,7 @@
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; LPMP SULAWESI SELATAN.</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->

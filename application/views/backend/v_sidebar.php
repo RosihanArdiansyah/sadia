@@ -45,16 +45,15 @@
                         </div>
                     </div>
                     <ul class="menu accordion-menu">
-                        <li class="active"><a href="<?php echo site_url('halamanbelakang/dashboard');?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>ATK</p><span class="arrow"></span></a>
+                        <li class="active"><a href="<?php echo site_url('halamanbelakang/post');?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Daftar Permintaan</p></a></li>
+                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Persediaan</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
 								<?php if($this->session->userdata('access')=='2'|| $this->session->userdata('access')=='3'):?>
                                 <li><a href="<?php echo site_url('halamanbelakang/post/add_new');?>">Membuat Permintaan</a></li>
                                 <li><a href="<?php echo site_url('halamanbelakang/rent/add_new');?>">Membuat Peminjaman</a></li><?php else:?> <?php endif;?>
                                 <li><a href="<?php echo site_url('halamanbelakang/rent');?>">Daftar Peminjaman</a></li>
-                                <li><a href="<?php echo site_url('halamanbelakang/post');?>">Daftar Permintaan</a></li>
                                 <?php if($this->session->userdata('access')=='1'):?>
-								<li><a href="<?php echo site_url('halamanbelakang/category');?>">Daftar ATK</a></li>
+								<li><a href="<?php echo site_url('halamanbelakang/category');?>">Daftar Persediaan</a></li>
                                 <li><a href="<?php echo site_url('halamanbelakang/tag');?>">Satuan</a></li>
 								<li><a href="<?php echo site_url('halamanbelakang/room');?>">Ruangan</a></li><?php else:?> <?php endif;?>
                             </ul>

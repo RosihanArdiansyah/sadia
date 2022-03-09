@@ -17,9 +17,9 @@
                 <div class="page-title">
                     <h3>Dashboard</h3>
 <<<<<<< HEAD
-                    <div class="page-breadcruLPMP SULAWESI SELATAN">
+                    <div class="page-breadcruSadia">
 =======
-                    <div class="page-breadcrumb""Sadia Mane">
+                    <div class="page-breadcrumb""Sadia">
 >>>>>>> f881758391446aa6127d2a4a8c1eaa2676440365
                         <ol class="breadcrumb">
                             <li><a href="<?php echo site_url('halamanbelakang/dashboard');?>">Home</a></li>
@@ -147,10 +147,10 @@
                     </div>
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; SADIA MANE</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia</p>
 =======
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia Mane</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia</p>
 >>>>>>> f881758391446aa6127d2a4a8c1eaa2676440365
                 </div>
             </div><!-- Page Inner -->

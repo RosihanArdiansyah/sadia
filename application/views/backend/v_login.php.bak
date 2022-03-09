@@ -52,7 +52,7 @@
                                     <button type="submit" class="btn btn-success btn-block">Login</button>
                                     
                                 </form>
-                                <p class="text-center m-t-xs text-sm"><?php echo date('Y');?> &copy; SADIA MANE</p>
+                                <p class="text-center m-t-xs text-sm"><?php echo date('Y');?> &copy; Sadia</p>
                             </div>
                         </div>
                     </div><!-- Row -->

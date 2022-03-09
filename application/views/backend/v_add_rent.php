@@ -31,12 +31,7 @@
                                 <div class="panel-body">
                                     <div class="form-group">        
                                         <label>Barang</label>
-                                            <select class="form-control" name="category" required>
-                                                <option value="">-Select Option-</option>
-                                                    <?php foreach ($category->result() as $row) : ?>
-                                                        <option value="<?php echo $row->category_id;?>"><?php echo $row->category_name;?></option>
-                                                    <?php endforeach;?>
-                                            </select>
+                                            <input type="text" name="category"  class="form-control" class="form-control" required>
                                         <label style="margin-top: 8px;">Jumlah</label>
                                             <input type="number" name="sum" class="form-control" placeholder="Jumlah Barang" required>
                                     </div>
@@ -71,7 +66,7 @@
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; LPMP SULAWESI SELATAN.</p>
+                    <p class="no-s"><?php echo date('Y');?> &copy; Sadia.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->

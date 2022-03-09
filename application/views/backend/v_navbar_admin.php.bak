@@ -11,7 +11,7 @@
                         <a href="<?php echo site_url('halamanbelakang/dashboard');?>"><image src="<?=base_url()?>theme/diplomat/images/favicon.ico" width="32px" style="margin-left:10px; margin-top:10px;"/></a>
 						</td>
 						<td>
-						<a href="<?php echo site_url('halamanbelakang/dashboard');?>" class="logo-text"><span>Sadia Mane</span></a>
+						<a href="<?php echo site_url('halamanbelakang/dashboard');?>" class="logo-text"><span>Sadia</span></a>
 						</td>
 						</tr>
                     </div><!-- Logo Box -->

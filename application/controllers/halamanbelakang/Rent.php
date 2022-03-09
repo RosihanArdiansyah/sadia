@@ -35,18 +35,18 @@ class Rent extends CI_Controller{
 
 	function publish(){
 		
-		$category = $this->input->rent('category',TRUE);
-		$sum = $this->input->rent('sum',TRUE);
+		$category = $this->input->post('category',TRUE);
+		$sum = $this->input->post('sum',TRUE);
 		$dataRent = array();		
-		$xtags[]=$this->input->rent('tag');
+		$xtags[]=$this->input->post('tag');
 		foreach($xtags as $tag){
 			$tags = @implode(",", $tag);
 		}
 
 
-		$description=htmlspecialchars($this->input->rent('description',TRUE),ENT_QUOTES);
+		$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 		$dataRent = array(
-			'rent_category_id'	=> $category,
+			'rent_name'	=> $category,
 			'rent_tags'		=> $tags,
 			'rent_description'	=> $description,
 			'rent_sum' => $sum,
@@ -64,22 +64,22 @@ class Rent extends CI_Controller{
 
 	function edit(){
 
-		$id 	  = $this->input->rent('rent_id',TRUE);
-		$user_id 	  = $this->input->rent('rent_user_id',TRUE);
-		$category = $this->input->rent('category',TRUE);
-		$sum = $this->input->rent('sum',TRUE);
-		$status = $this->input->rent('status',TRUE);
-		$acc = $this->input->rent('acc',TRUE);
+		$id 	  = $this->input->post('rent_id',TRUE);
+		$user_id 	  = $this->input->post('rent_user_id',TRUE);
+		$category = $this->input->post('category',TRUE);
+		$sum = $this->input->post('sum',TRUE);
+		$status = $this->input->post('status',TRUE);
+		$acc = $this->input->post('acc',TRUE);
 		$dataRent = array();		
-		$xtags[]=$this->input->rent('tag');
+		$xtags[]=$this->input->post('tag');
 		foreach($xtags as $tag){
 			$tags = @implode(",", $tag);
 		}
 
 
-		$description=htmlspecialchars($this->input->rent('description',TRUE),ENT_QUOTES);
+		$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 		$dataRent = array(
-			'rent_category_id'	=> $category,
+			'rent_name'	=> $category,
 			'rent_tags'		=> $tags,
 			'rent_description'	=> $description,
 			'rent_sum' => $sum,

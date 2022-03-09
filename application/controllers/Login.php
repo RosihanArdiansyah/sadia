@@ -28,7 +28,7 @@ class Login extends CI_Controller{
                 	$name=$x['user_name'];
                 	$this->session->set_userdata('id',$id);
                 	$this->session->set_userdata('name',$name);
-                	redirect('halamanbelakang/dashboard');
+                	redirect('halamanbelakang/post');
 
              	}elseif($x['user_level']=='2'){ //halamaninputnya
                 	$this->session->set_userdata('access','2');
@@ -36,7 +36,7 @@ class Login extends CI_Controller{
                 	$name=$x['user_name'];
                 	$this->session->set_userdata('id',$id);
                 	$this->session->set_userdata('name',$name);
-                	redirect('halamanbelakang/dashboard');
+                	redirect('halamanbelakang/post');
 
              	}elseif($x['user_level']=='3'){ //halamaninputnya
                 	$this->session->set_userdata('access','3');
@@ -44,7 +44,7 @@ class Login extends CI_Controller{
                 	$name=$x['user_name'];
                 	$this->session->set_userdata('id',$id);
                 	$this->session->set_userdata('name',$name);
-                	redirect('halamanbelakang/dashboard');
+                	redirect('halamanbelakang/post');
 
              	}	
             }else{

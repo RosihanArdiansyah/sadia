@@ -2,7 +2,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <meta name="author" content="LPMP Sulawesi Selatan" />
+        <meta name="author" content="Sadia" />
         <link rel="shortcut icon" href="<?php echo base_url().'theme/diplomat/images/favicon.ico'?>">
         
         <!-- Styles -->
