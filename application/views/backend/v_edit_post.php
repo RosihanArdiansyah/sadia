@@ -45,6 +45,8 @@
                                                         <?php endif;?>
                                                     <?php endforeach;?>
                                             </select>
+                                        <label style="margin-top: 8px;">Nama Barang(Jika memilih lain-lain)</label>
+                                            <input type="text" name="categoryName" value="<?php echo $b['post_category_name'];?>" class="form-control" placeholder="Nama Barang">
                                         <label style="margin-top: 8px;">Jumlah</label>
                                             <input type="number" name="sum" value="<?php echo $b['post_sum'];?>" class="form-control" class="form-control" placeholder="Jumlah Barang" required>
                                     </div>
@@ -59,7 +61,7 @@
                                                 foreach ($tag->result() as $row) : ?>
                                                 <div class="form-group">
                                                     <label>
-                                                        <input type="checkbox" name="tag[]" value="<?php echo $row->tag_name;?>" <?php if(in_array($row->tag_name, $strtag)) echo 'checked="checked"';?> > <?php echo $row->tag_name;?>
+                                                        <input type="radio" name="tag[]" value="<?php echo $row->tag_name;?>" <?php if(in_array($row->tag_name, $strtag)) echo 'checked="checked"';?> > <?php echo $row->tag_name;?>
                                                     </label>
                                                 </div>
                                             <?php endforeach;?>
@@ -75,6 +77,21 @@
                                         <label>Penjelasan</label>
                                             <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"><?php echo $b['post_description'];?></textarea>
                                             <?php if($this->session->userdata('access')==1):?>
+                                    <div class="form-group">
+                                        <label style="margin-top: 8px;">Kebutuhan</label>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="radio" name="needs" value="Persediaan" <?php if($b['post_needs']=='Persediaan') echo 'checked="checked"';?> required> Persediaan                                                </label>
+                                        
+                                                <label>
+                                                    <input type="radio" name="needs" value="Kegiatan" <?php if($b['post_needs']=='Kegiatan') echo 'checked="checked"';?> required> Kegiatan                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                    <div class="form-group">
+                                            <label>Image</label>
+                                            <input type="file" name="filefoto" class="dropify" data-height="190" data-default-file="<?php echo base_url().'assets/images/post/'.$b['post_image'];?>">
+                                        </div>
                                             <label>Status</label>
                                             <select class="form-control" name="status" required>
                                             

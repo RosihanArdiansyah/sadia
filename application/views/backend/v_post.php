@@ -34,17 +34,21 @@
                                         <table id="data-table" class="display table" style="width: 100%; cellspacing: 0;">
                                             <thead>
                                                 <tr>
-                                                    <th style="width: 100px;">No</th>
+                                                    <th style="width: 50px;">No</th>
                                                     <th>Pengirim</th>
                                                     <th>Nama Barang</th>
                                                     <th>Tanggal</th>
                                                     <th>Jumlah</th>
                                                     <th>Satuan</th>
+                                                    <th>Kebutuhan</th>
                                                     <th>Penjelasan</th>
                                                     <?php if($this->session->userdata('access')==2):?>
                                                         <th style="text-align: center;width: 120px;">Status</th>
+                                                    <?php elseif($this->session->userdata('access')==1):?>
+                                                        <th style="text-align: center;width: 120px;">Status</th>
+                                                        <th style="text-align: center;">Action</th>
                                                     <?php else:?>
-                                                    <th style="text-align: center;">Action</th>
+                                                        <th style="text-align: center;">Action</th>
                                                     <?php endif;?>
                                                 </tr>
                                             </thead>
@@ -64,9 +68,16 @@
                                                     <td><?php echo $row->tanggal;?></td>
                                                     <td><?php echo $row->post_sum;?></td>
                                                     <td><?php echo $row->post_tags;?></td>
+                                                    <td><?php echo $row->post_needs;?></td>
                                                     <td><?php echo $row->post_description;?></td>
                                                     <?php if($this->session->userdata('access')==1|| $this->session->userdata('access')==3 ):?>
                                                         <td style="text-align: center;">
+                                                            <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
+                                                            <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
+                                                        </td>
+                                                    <?php elseif($this->session->userdata('access')==2&& $row->post_status==0 ):?>
+                                                        <td style="text-align: center;">
+                                                            <p>Sedang Diproses</p>
                                                             <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
                                                             <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
                                                         </td>
@@ -95,7 +106,20 @@
                                                         <td><?php echo $row->tanggal;?></td>
                                                         <td><?php echo $row->post_sum;?></td>
                                                         <td><?php echo $row->post_tags;?></td>
+                                                        <td><?php echo $row->post_needs;?></td>
                                                         <td><?php echo $row->post_description;?></td>
+                                                        <td><?php switch ($row->post_status){
+                                                            case 1:
+                                                                echo "Diterima";
+                                                                break;
+                                                              case 2:
+                                                                echo "Ditolak";
+                                                                break;
+                                                              default:
+                                                                echo "Sedang Diproses";
+
+                                                        } 
+                                                            ;?></td>
                                                             <td style="text-align: center;">
                                                                 <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
                                                                 <a href="javascript:void(0);" class="btn btn-xs btn-delete" data-id="<?php echo $row->post_id;?>"><span class="fa fa-trash"></span></a>
@@ -111,6 +135,7 @@
                                                         <td><?php echo $row->tanggal;?></td>
                                                         <td><?php echo $row->post_sum;?></td>
                                                         <td><?php echo $row->post_tags;?></td>
+                                                        <td><?php echo $row->post_needs;?></td>
                                                         <td><?php echo $row->post_description;?></td>
                                                             <td style="text-align: center;">
                                                                 <a href="<?php echo site_url('halamanbelakang/post/get_edit/'.$row->post_id);?>" class="btn btn-xs"><span class="fa fa-pencil"></span></a>
@@ -182,7 +207,7 @@
                 $('#data-table').dataTable();
 
                 //Delete Record
-                $('.btn-delete').on('click',function(){
+                $('body').on('click','.btn-delete',function(){
                     var id=$(this).data('id');
                     $('[name="id"]').val(id);
                     $('#DeleteModal').modal('show');

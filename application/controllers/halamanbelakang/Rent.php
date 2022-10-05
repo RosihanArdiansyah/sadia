@@ -108,7 +108,7 @@ class Rent extends CI_Controller{
 	}
 
 	function delete(){
-		$rent_id = $this->input->rent('id',TRUE);
+		$rent_id = $this->input->post('id',TRUE);
 		$this->rent_model->delete_rent($rent_id);
 		echo $this->session->set_flashdata('msg','success-delete');
 		redirect('halamanbelakang/rent');

@@ -196,7 +196,7 @@
                 $('#data-table').dataTable();
 
                //Edit Record
-               $('.btn-edit').on('click',function(){
+               $('body').on('click','.btn-edit',function(){
                     var id=$(this).data('id');
                     var name=$(this).data('name');
                     var kode=$(this).data('kode');
@@ -213,7 +213,7 @@
                 });
 
                 //Edit Record
-                $('.btn-delete').on('click',function(){
+                $('body').on('click','.btn-delete',function(){
                     var id=$(this).data('id');
                     $('[name="id"]').val(id);
                     $('#DeleteModal').modal('show');

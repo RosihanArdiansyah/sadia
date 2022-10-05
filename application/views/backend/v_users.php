@@ -296,7 +296,7 @@
                     }
                 });
 
-                $('.delete').on('click',function(){
+                $('body').on('click','.delete',function(){
                     var userid=$(this).data('userid');
                     $('#ModalDelete').modal('show');
                     $('[name="kode"]').val(userid);

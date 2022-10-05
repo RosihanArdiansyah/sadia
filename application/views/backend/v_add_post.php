@@ -37,6 +37,8 @@
                                                         <option value="<?php echo $row->category_id;?>"><?php echo $row->category_name;?></option>
                                                     <?php endforeach;?>
                                             </select>
+                                        <label style="margin-top: 8px;">Nama Barang(Jika memilih lain-lain)</label>
+                                            <input type="text" name="categoryName" class="form-control" placeholder="Nama Barang">
                                         <label style="margin-top: 8px;">Jumlah</label>
                                             <input type="number" name="sum" class="form-control" placeholder="Jumlah Barang" required>
                                     </div>
@@ -45,7 +47,7 @@
                                             <?php foreach ($tag->result() as $row) : ?>
                                                 <div class="form-group">
                                                     <label>
-                                                        <input type="checkbox" name="tag[]" value="<?php echo $row->tag_name;?>"> <?php echo $row->tag_name;?>
+                                                        <input type="radio" name="tag[]" value="<?php echo $row->tag_name;?>" required> <?php echo $row->tag_name;?>
                                                     </label>
                                                 </div>
                                             <?php endforeach;?>
@@ -58,8 +60,21 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label>Penjelasan</label>
-                                            <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan"></textarea>
-                                    </div>
+                                            <textarea name="description" cols="6" rows="6" class="form-control" placeholder="Penjelasan" required></textarea>
+                                    <div class="form-group">
+                                        <label style="margin-top: 8px;">Kebutuhan</label>
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="radio" name="needs" value="Persediaan" required> Persediaan                                                </label>
+                                        
+                                                <label>
+                                                    <input type="radio" name="needs" value="Kegiatan" required> Kegiatan                                                </label>
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
+                                            <label>Image</label>
+                                            <input type="file" name="filefoto" class="dropify" data-height="190">
+                                        </div>
                                     <div class="btn-group btn-group-justified" role="group">
                                         <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> PUBLISH</button>
                                     </div>

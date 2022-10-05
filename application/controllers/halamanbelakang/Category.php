@@ -25,7 +25,7 @@ class Category extends CI_Controller{
 		
 		$this->category_model->add_new_row($category,$code,$price,$sum,$tanggal);
 		$this->session->set_flashdata('msg','success');
-		redirect('halamanbelakang/category');
+		redirect('halamanbelakang/category'); 
 	}
 
 	function edit(){

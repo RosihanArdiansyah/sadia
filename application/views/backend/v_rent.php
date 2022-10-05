@@ -182,7 +182,7 @@
                 $('#data-table').dataTable();
 
                 //Delete Record
-                $('.btn-delete').on('click',function(){
+                $('body').on('click','.btn-delete',function(){
                     var id=$(this).data('id');
                     $('[name="id"]').val(id);
                     $('#DeleteModal').modal('show');
